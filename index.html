@@ -25,269 +25,192 @@
   --graphite:#606770;
   --blu:#0F4C81;
   --blu-scuro:#0A3358;
+  --verde:#1E7A62;
+  --bruno:#7A6248;
   --giallo:#F2B134;
   --linea:#CBCEC7;
-  --verde:#2F7A4E;
   --rosso:#B3402E;
   --r:5px;
   --nav-h:62px;
-  --display:"Barlow Condensed", "Helvetica Neue", sans-serif;
-  --body:"Barlow", system-ui, -apple-system, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+  --display:"Barlow Condensed","Helvetica Neue",sans-serif;
+  --body:"Barlow",system-ui,-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",monospace;
+  --c:var(--blu);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0}
 body{
-  background:var(--chalk);
-  color:var(--ink);
-  font-family:var(--body);
-  font-size:16px;
-  line-height:1.4;
+  background:var(--chalk);color:var(--ink);
+  font-family:var(--body);font-size:16px;line-height:1.4;
   -webkit-font-smoothing:antialiased;
   padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom));
 }
-.wrap{max-width:600px;margin:0 auto;padding:0 14px}
+.wrap{max-width:620px;margin:0 auto;padding:0 14px}
 
-/* ---------- top bar ---------- */
 header{
-  background:var(--blu);
-  color:#fff;
+  background:var(--blu);color:#fff;
   padding:calc(env(safe-area-inset-top) + 12px) 0 12px;
   border-bottom:3px solid var(--giallo);
   position:sticky;top:0;z-index:20;
 }
 header .wrap{display:flex;align-items:baseline;gap:10px}
-h1{
-  font-family:var(--display);
-  font-size:23px;font-weight:700;
-  letter-spacing:.055em;text-transform:uppercase;
-  margin:0;
-}
-header .sub{
-  font-family:var(--mono);font-size:10px;letter-spacing:.12em;
-  text-transform:uppercase;opacity:.72;margin-left:auto;
-}
+h1{font-family:var(--display);font-size:23px;font-weight:700;letter-spacing:.055em;text-transform:uppercase;margin:0}
+header .sub{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.72;margin-left:auto}
 
-/* ---------- sections / cards ---------- */
 main{padding-top:16px}
 .panel{display:none}
 .panel.on{display:block}
-.card{
-  background:var(--paper);
-  border:1px solid var(--linea);
-  border-radius:var(--r);
-  padding:14px;
-  margin-bottom:14px;
-}
+.col-a,.col-b{display:contents}
+.card{background:var(--paper);border:1px solid var(--linea);border-radius:var(--r);padding:14px;margin-bottom:14px}
 .card.flat{padding:0;overflow:hidden}
-.eyebrow{
-  font-family:var(--display);
-  font-size:12px;font-weight:700;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--blu);
-  margin:0 0 10px;
-  display:flex;align-items:center;gap:8px;
-}
+.eyebrow{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin:0 0 10px;display:flex;align-items:center;gap:8px}
 .eyebrow::after{content:"";flex:1;height:1px;background:var(--linea)}
-.eyebrow.giallo{color:var(--ink)}
-.eyebrow.giallo::before{content:"";width:9px;height:9px;background:var(--giallo);border-radius:1px}
 .hint{font-size:12.5px;color:var(--graphite);margin:8px 0 0;line-height:1.45}
 
-/* ---------- fields ---------- */
 label.f{display:block;margin-bottom:11px}
-label.f > span{
-  display:block;
-  font-family:var(--display);font-size:11.5px;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--graphite);
-  margin-bottom:4px;
-}
-input,select,textarea{
-  width:100%;
-  font-family:var(--body);font-size:16px;
-  color:var(--ink);background:#fff;
-  border:1px solid var(--linea);border-radius:4px;
-  padding:9px 10px;
-  appearance:none;
-}
+label.f>span{display:block;font-family:var(--display);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--graphite);margin-bottom:4px}
+input,select,textarea{width:100%;font-family:var(--body);font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--linea);border-radius:4px;padding:9px 10px;appearance:none}
 input.num,select.num{font-family:var(--mono);font-size:15px}
 textarea{min-height:78px;resize:vertical;line-height:1.45}
-input:focus,select,textarea:focus,select:focus{outline:none}
-input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{
-  outline:2.5px solid var(--blu);outline-offset:1px;
-}
-select{background-image:linear-gradient(45deg,transparent 50%,var(--graphite) 50%),linear-gradient(135deg,var(--graphite) 50%,transparent 50%);
-  background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%;
-  background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:32px}
+input:focus,select:focus,textarea:focus{outline:none}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2.5px solid var(--c);outline-offset:1px}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--graphite) 50%),linear-gradient(135deg,var(--graphite) 50%,transparent 50%);background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:32px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 10px}
 
-/* ---------- buttons ---------- */
 button{font-family:var(--body);cursor:pointer;border-radius:4px;border:1px solid transparent}
-.btn{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  width:100%;padding:14px;
-  background:var(--blu);color:#fff;
-  font-family:var(--display);font-size:16px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-}
-.btn:active{background:var(--blu-scuro)}
-.btn.ghost{background:transparent;color:var(--blu);border:1.5px solid var(--blu)}
-.btn.ghost:active{background:rgba(15,76,129,.09)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:var(--c);color:#fff;font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.btn:active{filter:brightness(.85)}
+.btn.ghost{background:transparent;color:var(--c);border:1.5px solid var(--c)}
+.btn.ghost:active{background:rgba(0,0,0,.06)}
 .btn.small{padding:10px;font-size:13.5px}
-.btn[disabled]{opacity:.45;pointer-events:none}
 .btn-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sp{height:10px}
 
-/* ---------- block profile (signature element) ---------- */
-.chips{
-  display:flex;align-items:flex-end;gap:10px;
-  overflow-x:auto;padding:4px 2px 12px;
-  scroll-snap-type:x proximity;
-  -webkit-overflow-scrolling:touch;
+.profilo{
+  height:46px;border-radius:2px;background:var(--chalk);
+  background-image:radial-gradient(circle at 1px 1px,rgba(0,0,0,.10) 1px,transparent 0);
+  background-size:5px 5px;border:1.5px solid var(--linea);border-bottom:3px solid var(--graphite);
+  transition:background-color .12s,border-color .12s;flex:0 0 auto;
 }
+.profilo.sel{background-color:var(--c);border-color:var(--c);background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.22) 1px,transparent 0)}
+
+.linea-prod{border-top:1px solid var(--linea);padding:12px 14px}
+.linea-prod:first-child{border-top:none}
+.linea-prod .testa{display:flex;align-items:baseline;gap:9px;margin-bottom:9px}
+.linea-prod .tag{
+  font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:#fff;background:var(--c);padding:2px 9px 3px;border-radius:3px;
+}
+.linea-prod .meta{font-family:var(--mono);font-size:10.5px;color:var(--graphite);margin-left:auto;text-align:right}
+.chips{display:flex;align-items:flex-end;gap:10px;overflow-x:auto;padding:3px 2px 8px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
 .chips::-webkit-scrollbar{height:3px}
 .chips::-webkit-scrollbar-thumb{background:var(--linea)}
-.chip{
-  flex:0 0 auto;scroll-snap-align:center;
-  background:none;border:none;padding:0;
-  display:flex;flex-direction:column;align-items:center;gap:5px;
-}
-.profilo{
-  height:46px;border-radius:2px;
-  background:var(--chalk);
-  background-image:radial-gradient(circle at 1px 1px, rgba(0,0,0,.10) 1px, transparent 0);
-  background-size:5px 5px;
-  border:1.5px solid var(--linea);
-  border-bottom:3px solid var(--graphite);
-  transition:background-color .12s, border-color .12s;
-}
-.chip .cm{
-  font-family:var(--mono);font-size:13px;font-weight:600;
-  color:var(--graphite);
-}
-.chip[aria-pressed="true"] .profilo{
-  background-color:var(--blu);border-color:var(--blu-scuro);
-  background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,.22) 1px, transparent 0);
-}
-.chip[aria-pressed="true"] .cm{color:var(--blu)}
+.chip{flex:0 0 auto;scroll-snap-align:center;background:none;border:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:5px}
+.chip .cm{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--graphite)}
+.chip[aria-pressed="true"] .cm{color:var(--c)}
 
-/* ---------- preventivo rows ---------- */
-.voce{border-top:1px solid var(--linea);padding:13px 14px}
+.toggle-riga{display:flex;align-items:center;gap:12px}
+.toggle-riga .txt{flex:1;min-width:0}
+.toggle-riga .txt b{display:block;font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.toggle-riga .txt small{font-family:var(--mono);font-size:10.5px;color:var(--graphite)}
+.sw{width:54px;height:31px;border-radius:16px;background:var(--linea);border:none;position:relative;flex:0 0 auto;transition:background .15s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:25px;height:25px;border-radius:50%;background:#fff;transition:transform .15s;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.sw[aria-pressed="true"]{background:var(--c)}
+.sw[aria-pressed="true"]::after{transform:translateX(23px)}
+
+.voce{border-top:1px solid var(--linea);padding:13px 14px 13px 11px;border-left:4px solid var(--c)}
 .voce:first-child{border-top:none}
 .voce-top{display:flex;align-items:flex-end;gap:11px;margin-bottom:11px}
 .voce-nome{flex:1;min-width:0}
-.voce-nome b{
-  display:block;font-family:var(--display);font-size:19px;font-weight:700;
-  letter-spacing:.04em;line-height:1.05;
-}
-.voce-nome small{font-family:var(--mono);font-size:11px;color:var(--graphite)}
-.del{
-  background:none;color:var(--rosso);border:1px solid var(--linea);
-  font-size:19px;line-height:1;width:34px;height:34px;flex:0 0 auto;
-  border-radius:4px;
-}
+.voce-nome b{display:block;font-family:var(--display);font-size:19px;font-weight:700;letter-spacing:.04em;line-height:1.05}
+.voce-nome small{font-family:var(--mono);font-size:10.5px;color:var(--graphite)}
+.voce-nome em{font-style:normal;color:var(--c);font-weight:600}
+.del{background:none;color:var(--rosso);border:1px solid var(--linea);font-size:19px;line-height:1;width:34px;height:34px;flex:0 0 auto;border-radius:4px}
 .qta{display:grid;grid-template-columns:1fr 118px;gap:10px;align-items:end}
-.riepilogo{
-  display:flex;flex-wrap:wrap;gap:0 18px;
-  margin-top:11px;padding-top:10px;border-top:1px dashed var(--linea);
-}
-.riepilogo div{min-width:64px}
-.riepilogo dt{
-  font-family:var(--display);font-size:10.5px;font-weight:600;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--graphite);
-}
+.riepilogo{display:flex;flex-wrap:wrap;gap:0 18px;margin-top:11px;padding-top:10px;border-top:1px dashed var(--linea)}
+.riepilogo div{min-width:60px}
+.riepilogo dt{font-family:var(--display);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
 .riepilogo dd{margin:0;font-family:var(--mono);font-size:14px;font-weight:500}
-.riepilogo .big dd{font-size:16px;font-weight:600;color:var(--blu)}
+.riepilogo .big dd{font-size:16px;font-weight:600;color:var(--c)}
 .vuoto{padding:26px 14px;text-align:center;color:var(--graphite);font-size:14px}
 
-/* ---------- totals ---------- */
 .tot{background:var(--blu);color:#fff;border-color:var(--blu)}
-.tot .riga{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0}
-.tot .riga span:first-child{
-  font-family:var(--display);font-size:13px;letter-spacing:.1em;
-  text-transform:uppercase;opacity:.82;
-}
-.tot .riga span:last-child{font-family:var(--mono);font-size:16px}
+.tot .riga{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;gap:12px}
+.tot .riga span:first-child{font-family:var(--display);font-size:13px;letter-spacing:.1em;text-transform:uppercase;opacity:.82}
+.tot .riga span:last-child{font-family:var(--mono);font-size:16px;white-space:nowrap}
 .tot .riga.finale{border-top:1.5px solid rgba(255,255,255,.35);margin-top:7px;padding-top:11px}
 .tot .riga.finale span:first-child{opacity:1;font-weight:700;font-size:15px}
 .tot .riga.finale span:last-child{font-size:24px;font-weight:600;color:var(--giallo)}
-.tot .nota{
-  font-family:var(--mono);font-size:11px;opacity:.78;
-  margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.22);
-  line-height:1.5;
-}
+.tot .nota{font-family:var(--mono);font-size:11px;opacity:.78;margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.22);line-height:1.55}
 
-/* ---------- listino ---------- */
+.fuori{border-left:4px solid var(--giallo)}
+.fuori .riga{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;gap:12px}
+.fuori .riga span:first-child{font-family:var(--display);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--graphite)}
+.fuori .riga span:last-child{font-family:var(--mono);font-size:15px}
+.fuori .riga.f2{border-top:1px solid var(--linea);margin-top:6px;padding-top:9px}
+.fuori .riga.f2 span:first-child{color:var(--ink);font-weight:700}
+.fuori .riga.f2 span:last-child{font-size:18px;font-weight:600}
+
+.seg{display:flex;background:var(--paper);border:1px solid var(--linea);border-radius:var(--r);padding:3px;margin-bottom:14px;gap:3px}
+.seg button{flex:1;background:none;border:none;padding:10px 4px;font-family:var(--display);font-size:13.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--graphite);border-radius:3px}
+.seg button[aria-selected="true"]{background:var(--c);color:#fff}
+.sub{display:none}
+.sub.on{display:block}
+
 .lrow{border-top:1px solid var(--linea);padding:13px 14px}
 .lrow:first-child{border-top:none}
 .lrow-head{display:flex;align-items:flex-end;gap:11px;margin-bottom:10px}
 .lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 9px}
-.lgrid label.f > span{font-size:10.5px}
-.calcolato{
-  display:flex;flex-wrap:wrap;gap:0 14px;
-  background:var(--chalk);border-radius:4px;padding:8px 10px;margin-top:2px;
-}
-.calcolato div{min-width:58px}
+.lgrid label.f>span{font-size:10.5px}
+.calcolato{display:flex;flex-wrap:wrap;gap:0 14px;background:var(--chalk);border-radius:4px;padding:8px 10px;margin-top:2px}
+.calcolato div{min-width:56px}
 .calcolato dt{font-family:var(--display);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--graphite)}
 .calcolato dd{margin:0;font-family:var(--mono);font-size:13.5px;font-weight:500}
-.calcolato .key dd{color:var(--blu);font-weight:600}
+.calcolato .key dd{color:var(--c);font-weight:600}
 
-/* ---------- switch ---------- */
-.switch{display:flex;border:1.5px solid var(--blu);border-radius:4px;overflow:hidden}
-.switch button{
-  flex:1;background:#fff;color:var(--blu);border:none;padding:10px 6px;
-  font-family:var(--display);font-size:13px;font-weight:600;
-  letter-spacing:.07em;text-transform:uppercase;
-}
-.switch button[aria-pressed="true"]{background:var(--blu);color:#fff}
+.switch{display:flex;border:1.5px solid var(--c);border-radius:4px;overflow:hidden}
+.switch button{flex:1;background:#fff;color:var(--c);border:none;padding:10px 6px;font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
+.switch button[aria-pressed="true"]{background:var(--c);color:#fff}
 .regime{border:1px solid var(--linea);border-radius:4px;padding:12px;margin-bottom:12px;background:#fff}
-.regime h4{
-  font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.08em;
-  text-transform:uppercase;margin:0 0 10px;
-}
+.regime h4{font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px}
 .regime h4 em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--graphite);letter-spacing:0;text-transform:none}
 
-/* ---------- logo ---------- */
-.logo-box{
-  display:flex;align-items:center;gap:13px;
-  border:1px dashed var(--linea);border-radius:4px;padding:11px;background:#fff;
-}
+.logo-box{display:flex;align-items:center;gap:13px;border:1px dashed var(--linea);border-radius:4px;padding:11px;background:#fff}
 .logo-box img{max-width:110px;max-height:52px;object-fit:contain}
-.logo-box .ph{
-  width:110px;height:52px;display:flex;align-items:center;justify-content:center;
-  background:var(--chalk);color:var(--graphite);
-  font-family:var(--mono);font-size:10px;text-align:center;border-radius:3px;
-}
+.logo-box .ph{width:110px;height:52px;display:flex;align-items:center;justify-content:center;background:var(--chalk);color:var(--graphite);font-family:var(--mono);font-size:10px;text-align:center;border-radius:3px}
 
-/* ---------- bottom nav ---------- */
-nav{
-  position:fixed;left:0;right:0;bottom:0;z-index:30;
-  background:var(--paper);
-  border-top:1px solid var(--linea);
-  padding-bottom:env(safe-area-inset-bottom);
-  display:flex;
-}
-nav button{
-  flex:1;background:none;border:none;
-  height:var(--nav-h);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
-  color:var(--graphite);
-  font-family:var(--display);font-size:11.5px;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;
-  border-top:3px solid transparent;margin-top:-1px;
-}
+nav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--paper);border-top:1px solid var(--linea);padding-bottom:env(safe-area-inset-bottom);display:flex}
+nav .inner{display:flex;width:100%;max-width:620px;margin:0 auto}
+nav button{flex:1;background:none;border:none;height:var(--nav-h);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:var(--graphite);font-family:var(--display);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-top:3px solid transparent;margin-top:-1px}
 nav button[aria-selected="true"]{color:var(--blu);border-top-color:var(--giallo)}
 nav svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
-/* ---------- toast ---------- */
-#toast{
-  position:fixed;left:50%;transform:translate(-50%,20px);
-  bottom:calc(var(--nav-h) + env(safe-area-inset-bottom) + 16px);
-  background:var(--ink);color:#fff;padding:11px 17px;border-radius:4px;
-  font-size:14px;max-width:88vw;text-align:center;z-index:60;
-  opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
-}
+#toast{position:fixed;left:50%;transform:translate(-50%,20px);bottom:calc(var(--nav-h) + env(safe-area-inset-bottom) + 16px);background:var(--ink);color:#fff;padding:11px 17px;border-radius:4px;font-size:14px;max-width:88vw;text-align:center;z-index:60;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
 #toast.on{opacity:1;transform:translate(-50%,0)}
 #toast.err{background:var(--rosso)}
 
+/* ---------- iPad e schermi larghi ---------- */
+@media (min-width:760px){
+  body{font-size:17px}
+  .wrap{max-width:980px;padding:0 22px}
+  nav .inner{max-width:980px}
+  main{padding-top:22px}
+  .panel.on{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:0 22px;align-items:start}
+  .col-a,.col-b{display:block}
+  .panel.on > .seg,
+  .panel.on > .sub{grid-column:1 / -1}
+  .sub.on{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:0 22px;align-items:start}
+  .card{padding:18px}
+  .card.flat{padding:0}
+  h1{font-size:26px}
+  .lgrid{grid-template-columns:repeat(4,1fr)}
+  .qta{grid-template-columns:1fr 150px}
+}
+@media (min-width:1100px){
+  .wrap{max-width:1080px}
+  nav .inner{max-width:1080px}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -302,116 +225,178 @@ nav svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.7;st
 
 <main class="wrap">
 
-  <!-- ============ PREVENTIVO ============ -->
+  <!-- ===================== PREVENTIVO ===================== -->
   <section class="panel on" id="p-prev">
-    <div class="card">
-      <p class="eyebrow">Dati del preventivo</p>
-      <label class="f"><span>Cliente</span><input id="c-cliente" placeholder="Ragione sociale o nome"></label>
-      <label class="f"><span>Cantiere</span><input id="c-cantiere" placeholder="Indirizzo o localita"></label>
-      <div class="grid2">
-        <label class="f"><span>Numero</span><input id="c-numero" class="num"></label>
-        <label class="f"><span>Data</span><input id="c-data" type="date" class="num"></label>
+    <div class="col-a">
+      <div class="card">
+        <p class="eyebrow">Dati del preventivo</p>
+        <label class="f"><span>Cliente</span><input id="c-cliente" placeholder="Ragione sociale o nome"></label>
+        <label class="f"><span>Cantiere</span><input id="c-cantiere" placeholder="Indirizzo o localita"></label>
+        <div class="grid2">
+          <label class="f"><span>Numero</span><input id="c-numero" class="num"></label>
+          <label class="f"><span>Data</span><input id="c-data" type="date" class="num"></label>
+        </div>
+        <label class="f"><span>Validita offerta (giorni)</span><input id="c-validita" class="num" inputmode="numeric"></label>
       </div>
-      <label class="f"><span>Validita offerta (giorni)</span><input id="c-validita" class="num" inputmode="numeric"></label>
+
+      <div class="card flat" id="selettori"></div>
     </div>
 
-    <div class="card">
-      <p class="eyebrow giallo">Aggiungi uno spessore</p>
-      <div class="chips" id="chips"></div>
-      <p class="hint">Tocca lo spessore da inserire in preventivo. La larghezza del blocco e proporzionale allo spessore reale.</p>
+    <div class="col-b">
+      <div class="card flat" id="voci"></div>
+      <div id="box-collante"></div>
+      <div class="card tot" id="totali"></div>
+      <div class="card fuori" id="box-bancali"></div>
+      <button class="btn" id="btn-pdf">Genera PDF</button>
+      <div class="sp"></div>
+      <button class="btn ghost small" id="btn-nuovo">Nuovo preventivo</button>
     </div>
-
-    <div class="card flat" id="voci"></div>
-
-    <div class="card tot" id="totali"></div>
-
-    <button class="btn" id="btn-pdf">Genera PDF</button>
-    <div style="height:10px"></div>
-    <button class="btn ghost small" id="btn-nuovo">Nuovo preventivo</button>
   </section>
 
-  <!-- ============ LISTINO ============ -->
+  <!-- ===================== LISTINI ===================== -->
   <section class="panel" id="p-list">
-    <div class="card">
-      <p class="eyebrow">Parametri generali</p>
-      <div class="grid3">
-        <label class="f"><span>Sconto %</span><input class="num" inputmode="decimal" data-p="params.sconto"></label>
-        <label class="f"><span>Pallet EUR</span><input class="num" inputmode="decimal" data-p="params.costoPallet"></label>
-        <label class="f"><span>IVA %</span><input class="num" inputmode="decimal" data-p="params.iva"></label>
-      </div>
-      <p class="hint">Lo sconto si applica al prezzo di listino della casa madre. Il costo pallet e a corpo su ogni bancale.</p>
+    <div class="seg" id="seg-list" role="tablist">
+      <button role="tab" aria-selected="true"  data-sub="s-evo" style="--c:var(--blu)">Evolution</button>
+      <button role="tab" aria-selected="false" data-sub="s-act" style="--c:var(--verde)">Active</button>
+      <button role="tab" aria-selected="false" data-sub="s-col" style="--c:var(--bruno)">Collante</button>
     </div>
 
-    <div class="card">
-      <p class="eyebrow">Trasporto</p>
-      <div id="regimi"></div>
-      <p class="hint">Ogni regime divide il costo del camion per il numero di bancali caricabili, poi lo ripartisce sui mq del bancale.</p>
-    </div>
-
-    <div class="card flat" id="listino"></div>
-    <button class="btn ghost small" id="btn-add-sp">Aggiungi spessore</button>
-    <div style="height:10px"></div>
-    <button class="btn ghost small" id="btn-reset">Ripristina listino 2026</button>
-  </section>
-
-  <!-- ============ AZIENDA ============ -->
-  <section class="panel" id="p-az">
-    <div class="card">
-      <p class="eyebrow">Logo sul PDF</p>
-      <div class="logo-box">
-        <div id="logo-prev"></div>
-        <div style="flex:1">
-          <button class="btn ghost small" id="btn-logo">Carica logo</button>
-          <div style="height:7px"></div>
-          <button class="btn ghost small" id="btn-logo-del">Rimuovi</button>
+    <div class="sub on" id="s-evo" style="--c:var(--blu)">
+      <div class="col-a">
+        <div class="card">
+          <p class="eyebrow">Parametri Evolution</p>
+          <div class="grid3">
+            <label class="f"><span>Sconto %</span><input class="num" inputmode="decimal" data-p="listini.evo.params.sconto"></label>
+            <label class="f"><span>Bancale EUR</span><input class="num" inputmode="decimal" data-p="listini.evo.params.costoPallet"></label>
+            <label class="f"><span>IVA %</span><input class="num" inputmode="decimal" data-p="listini.evo.params.iva"></label>
+          </div>
+          <p class="hint">Questi parametri valgono solo per l'Evolution. L'Active ha i suoi.</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Trasporto Evolution</p>
+          <div id="regimi-evo"></div>
         </div>
       </div>
-      <input type="file" id="file-logo" accept="image/png,image/jpeg" hidden>
-      <p class="hint">PNG o JPG. Consigliato uno sfondo bianco o trasparente, larghezza almeno 600 px.</p>
-    </div>
-
-    <div class="card">
-      <p class="eyebrow">Intestazione</p>
-      <label class="f"><span>Ragione sociale</span><input data-p="azienda.nome"></label>
-      <label class="f"><span>Indirizzo</span><input data-p="azienda.indirizzo"></label>
-      <div class="grid2">
-        <label class="f"><span>P. IVA</span><input class="num" data-p="azienda.piva"></label>
-        <label class="f"><span>Telefono</span><input class="num" inputmode="tel" data-p="azienda.tel"></label>
+      <div class="col-b">
+        <div class="card flat" id="righe-evo"></div>
+        <button class="btn ghost small" data-add-riga="evo">Aggiungi spessore</button>
+        <div class="sp"></div>
+        <button class="btn ghost small" data-reset="evo">Ripristina listino 2026</button>
       </div>
-      <label class="f"><span>Email</span><input inputmode="email" data-p="azienda.email"></label>
-      <label class="f"><span>Referente</span><input data-p="azienda.referente"></label>
     </div>
 
-    <div class="card">
-      <p class="eyebrow">Condizioni in calce al PDF</p>
-      <label class="f"><span>Testo</span><textarea data-p="azienda.condizioni"></textarea></label>
-    </div>
-
-    <div class="card">
-      <p class="eyebrow">Backup dati</p>
-      <div class="btn-row">
-        <button class="btn ghost small" id="btn-export">Esporta</button>
-        <button class="btn ghost small" id="btn-import">Importa</button>
+    <div class="sub" id="s-act" style="--c:var(--verde)">
+      <div class="col-a">
+        <div class="card">
+          <p class="eyebrow">Parametri Active</p>
+          <div class="grid3">
+            <label class="f"><span>Sconto %</span><input class="num" inputmode="decimal" data-p="listini.act.params.sconto"></label>
+            <label class="f"><span>Bancale EUR</span><input class="num" inputmode="decimal" data-p="listini.act.params.costoPallet"></label>
+            <label class="f"><span>IVA %</span><input class="num" inputmode="decimal" data-p="listini.act.params.iva"></label>
+          </div>
+          <p class="hint">L'Active viaggia con un carico diverso: verifica i bancali per camion qui sotto.</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Trasporto Active</p>
+          <div id="regimi-act"></div>
+        </div>
       </div>
-      <input type="file" id="file-import" accept="application/json,.json" hidden>
-      <p class="hint">Tutti i dati restano sul telefono. Esporta un file di backup prima di cambiare dispositivo.</p>
+      <div class="col-b">
+        <div class="card flat" id="righe-act"></div>
+        <button class="btn ghost small" data-add-riga="act">Aggiungi spessore</button>
+        <div class="sp"></div>
+        <button class="btn ghost small" data-reset="act">Ripristina listino 2026</button>
+      </div>
+    </div>
+
+    <div class="sub" id="s-col" style="--c:var(--bruno)">
+      <div class="col-a">
+        <div class="card">
+          <p class="eyebrow">Parametri collante</p>
+          <div class="grid3">
+            <label class="f"><span>Kg/sacco</span><input class="num" inputmode="decimal" data-p="collante.kgSacco"></label>
+            <label class="f"><span>Sacchi/bancale</span><input class="num" inputmode="numeric" data-p="collante.sacchiBancale"></label>
+            <label class="f"><span>IVA %</span><input class="num" inputmode="decimal" data-p="collante.iva"></label>
+          </div>
+          <label class="f"><span>Prezzo al sacco EUR (0 = solo quantita)</span><input class="num" inputmode="decimal" data-p="collante.prezzoSacco"></label>
+          <p class="hint">Con prezzo a zero il collante compare nel preventivo come sola quantita, senza entrare nel totale.</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Simulatore</p>
+          <label class="f"><span>Bancali di blocchi</span><input class="num" inputmode="decimal" data-p="collante.bancaliSim"></label>
+          <p class="hint">Serve solo a leggere la tabella qui accanto come facevi nel foglio. Il preventivo usa comunque le quantita reali delle voci.</p>
+        </div>
+      </div>
+      <div class="col-b">
+        <div class="card flat" id="righe-col"></div>
+        <button class="btn ghost small" data-add-riga="col">Aggiungi spessore</button>
+        <div class="sp"></div>
+        <button class="btn ghost small" data-reset="col">Ripristina collante 2026</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AZIENDA ===================== -->
+  <section class="panel" id="p-az">
+    <div class="col-a">
+      <div class="card">
+        <p class="eyebrow">Logo sul PDF</p>
+        <div class="logo-box">
+          <div id="logo-prev"></div>
+          <div style="flex:1">
+            <button class="btn ghost small" id="btn-logo">Carica logo</button>
+            <div style="height:7px"></div>
+            <button class="btn ghost small" id="btn-logo-del">Rimuovi</button>
+          </div>
+        </div>
+        <input type="file" id="file-logo" accept="image/png,image/jpeg" hidden>
+        <p class="hint">PNG o JPG. Consigliato sfondo bianco o trasparente, larghezza almeno 600 px.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Intestazione</p>
+        <label class="f"><span>Ragione sociale</span><input data-p="azienda.nome"></label>
+        <label class="f"><span>Indirizzo</span><input data-p="azienda.indirizzo"></label>
+        <div class="grid2">
+          <label class="f"><span>P. IVA</span><input class="num" data-p="azienda.piva"></label>
+          <label class="f"><span>Telefono</span><input class="num" inputmode="tel" data-p="azienda.tel"></label>
+        </div>
+        <label class="f"><span>Email</span><input inputmode="email" data-p="azienda.email"></label>
+        <label class="f"><span>Referente</span><input data-p="azienda.referente"></label>
+      </div>
+    </div>
+    <div class="col-b">
+      <div class="card">
+        <p class="eyebrow">Condizioni in calce al PDF</p>
+        <label class="f"><span>Testo</span><textarea data-p="azienda.condizioni"></textarea></label>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Backup dati</p>
+        <div class="btn-row">
+          <button class="btn ghost small" id="btn-export">Esporta</button>
+          <button class="btn ghost small" id="btn-import">Importa</button>
+        </div>
+        <input type="file" id="file-import" accept="application/json,.json" hidden>
+        <p class="hint">Tutti i dati restano sul telefono. Esporta un backup prima di cambiare dispositivo.</p>
+      </div>
     </div>
   </section>
 </main>
 
 <nav role="tablist">
-  <button role="tab" aria-selected="true" data-tab="p-prev">
-    <svg viewBox="0 0 24 24"><path d="M6 3h9l5 5v13H6z"/><path d="M15 3v5h5"/><path d="M9 13h7M9 17h5"/></svg>
-    Preventivo
-  </button>
-  <button role="tab" aria-selected="false" data-tab="p-list">
-    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="12" height="6" rx="1"/></svg>
-    Listino
-  </button>
-  <button role="tab" aria-selected="false" data-tab="p-az">
-    <svg viewBox="0 0 24 24"><path d="M4 21V8l8-5 8 5v13"/><path d="M10 21v-6h4v6"/></svg>
-    Azienda
-  </button>
+  <div class="inner">
+    <button role="tab" aria-selected="true" data-tab="p-prev">
+      <svg viewBox="0 0 24 24"><path d="M6 3h9l5 5v13H6z"/><path d="M15 3v5h5"/><path d="M9 13h7M9 17h5"/></svg>
+      Preventivo
+    </button>
+    <button role="tab" aria-selected="false" data-tab="p-list">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="12" height="6" rx="1"/></svg>
+      Listini
+    </button>
+    <button role="tab" aria-selected="false" data-tab="p-az">
+      <svg viewBox="0 0 24 24"><path d="M4 21V8l8-5 8 5v13"/><path d="M10 21v-6h4v6"/></svg>
+      Azienda
+    </button>
+  </div>
 </nav>
 
 <div id="toast" role="status" aria-live="polite"></div>
@@ -421,17 +406,24 @@ nav svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.7;st
 "use strict";
 
 /* =========================================================
-   STORAGE — localStorage quando disponibile, memoria altrimenti
+   1. SALVATAGGIO
    ========================================================= */
-const KEY = "gasbeton-preventivi-v1";
+const KEY = "gasbeton-preventivi-v2";
+const KEY_V1 = "gasbeton-preventivi-v1";
+
 const Store = (()=>{
   let ok = false, mem = null;
   try { localStorage.setItem("__t","1"); localStorage.removeItem("__t"); ok = true; } catch(e){ ok = false; }
   return {
     persistent: ok,
     load(){
-      try { return ok ? JSON.parse(localStorage.getItem(KEY)) : mem; }
-      catch(e){ return null; }
+      if(!ok) return mem;
+      try {
+        const v2 = localStorage.getItem(KEY);
+        if(v2) return JSON.parse(v2);
+        const v1 = localStorage.getItem(KEY_V1);
+        return v1 ? JSON.parse(v1) : null;
+      } catch(e){ return null; }
     },
     save(o){
       if(ok){ try { localStorage.setItem(KEY, JSON.stringify(o)); } catch(e){} }
@@ -441,11 +433,12 @@ const Store = (()=>{
 })();
 
 /* =========================================================
-   DATI DI PARTENZA — dal listino 2026 Gasbeton Evolution
+   2. DATI DI PARTENZA
    ========================================================= */
 const uid = () => Math.random().toString(36).slice(2,9);
 
-const LISTINO_2026 = [
+// spessore, mq/bancale, pezzi/bancale, EUR/mq listino, regime
+const EVO_2026 = [
   [5,  22.50, 144,  15.88, "std"],
   [8,  14.06,  90,  24.71, "std"],
   [10, 11.25,  72,  29.49, "std"],
@@ -456,55 +449,115 @@ const LISTINO_2026 = [
   [30,  3.75,  24,  88.45, "std"],
   [36,  2.81,  18, 103.18, "sp36"]
 ];
+const ACT_2026 = [
+  [5,  22.50, 144,  21.83, "std"],
+  [10, 11.25,  72,  42.84, "std"],
+  [30,  3.75,  24,  92.99, "std"],
+  [36,  2.81,  18, 116.23, "std"],
+  [40,  2.81,  18, 123.97, "std"],
+  [45,  1.87,  12, 139.47, "std"],
+  [50,  1.87,  12, 154.97, "std"]
+];
+// spessore, kg collante al mq
+const COL_2026 = [[5,1.00],[10,2.00],[24,3.40],[30,4.20],[36,5.04],[40,5.60],[45,6.30],[50,7.00]];
 
-function listinoDefault(){
-  return LISTINO_2026.map(r => ({
-    id: uid(), spessore:r[0], mqPallet:r[1], pzPallet:r[2], listino:r[3], regime:r[4]
-  }));
-}
+const righeDa = src => src.map(r => ({ id:uid(), spessore:r[0], mqPallet:r[1], pzPallet:r[2], listino:r[3], regime:r[4] }));
+const righeCollante = () => COL_2026.map(r => ({ id:uid(), spessore:r[0], kgMq:r[1] }));
 
 function statoDefault(){
   return {
-    params:{ sconto:60, costoPallet:10, iva:22 },
-    regimi:{
-      std:  { nome:"Standard",      palletCamion:40, cliente:1200, azienda:1250, vettore:"azienda" },
-      sp36: { nome:"Spessore 36",   palletCamion:44, cliente:1200, azienda:1250, vettore:"azienda" }
+    listini:{
+      evo:{
+        nome:"Evolution", colore:"#0F4C81",
+        params:{ sconto:60, costoPallet:10, iva:22 },
+        regimi:{
+          std:  { nome:"Standard",    palletCamion:40, cliente:1200, azienda:1250, vettore:"azienda" },
+          sp36: { nome:"Spessore 36", palletCamion:44, cliente:1200, azienda:1250, vettore:"azienda" }
+        },
+        righe: righeDa(EVO_2026)
+      },
+      act:{
+        nome:"Active", colore:"#1E7A62",
+        params:{ sconto:63, costoPallet:10, iva:22 },
+        regimi:{
+          std: { nome:"Standard", palletCamion:60, cliente:1200, azienda:1250, vettore:"azienda" }
+        },
+        righe: righeDa(ACT_2026)
+      }
     },
-    listino: listinoDefault(),
+    collante:{
+      colore:"#7A6248", kgSacco:25, sacchiBancale:48, prezzoSacco:0, iva:22, bancaliSim:560,
+      righe: righeCollante()
+    },
     azienda:{
       nome:"", indirizzo:"", piva:"", tel:"", email:"", referente:"", logo:"",
-      condizioni:"Prezzi al metro quadro, trasporto e bancali inclusi come da dettaglio.\nScarico a cura del cliente. Consegna con bilico, verificare accessibilita del cantiere.\nPagamento come da accordi. Prezzi soggetti a variazione del listino della casa madre."
+      condizioni:"Prezzi al metro quadro, trasporto incluso. Bancali conteggiati a parte.\nScarico a cura del cliente. Consegna con bilico, verificare accessibilita del cantiere.\nPagamento come da accordi. Prezzi soggetti a variazione del listino della casa madre."
     },
-    preventivo:{ cliente:"", cantiere:"", numero:"", data:"", validita:30, voci:[] },
-    contatore: 1
+    preventivo:{ cliente:"", cantiere:"", numero:"", data:"", validita:30, collante:false, voci:[] },
+    contatore:1
   };
 }
 
-let S = Store.load() || statoDefault();
-// riallinea eventuali chiavi mancanti dopo un aggiornamento
-S = Object.assign(statoDefault(), S);
+/* fusione ricorsiva: tiene i dati salvati, aggiunge le chiavi nuove */
+function fondi(base, o){
+  if(!o || typeof o !== "object") return base;
+  Object.keys(o).forEach(k => {
+    const v = o[k];
+    if(v && typeof v === "object" && !Array.isArray(v) &&
+       base[k] && typeof base[k] === "object" && !Array.isArray(base[k])) fondi(base[k], v);
+    else if(v !== undefined) base[k] = v;
+  });
+  return base;
+}
+
+/* porta i salvataggi della versione 1 nel nuovo modello */
+function migra(o){
+  const d = statoDefault();
+  if(!o) return d;
+  if(o.listini) return fondi(d, o);
+
+  if(o.params) fondi(d.listini.evo.params, o.params);
+  if(o.regimi) fondi(d.listini.evo.regimi, o.regimi);
+  if(Array.isArray(o.listino) && o.listino.length){
+    d.listini.evo.righe = o.listino.map(r => ({
+      id: r.id || uid(), spessore:r.spessore, mqPallet:r.mqPallet,
+      pzPallet:r.pzPallet, listino:r.listino, regime:r.regime || "std"
+    }));
+  }
+  if(o.azienda) fondi(d.azienda, o.azienda);
+  d.contatore = o.contatore || 1;
+  if(o.preventivo){
+    fondi(d.preventivo, Object.assign({}, o.preventivo, {voci:[]}));
+    d.preventivo.voci = (o.preventivo.voci || [])
+      .filter(v => d.listini.evo.righe.some(r => r.id === v.listinoId))
+      .map(v => ({ prod:"evo", rigaId:v.listinoId, qta:v.qta, unita:v.unita }));
+  }
+  return d;
+}
+
+let S = migra(Store.load());
 
 /* =========================================================
-   UTILITY
+   3. UTILITY
    ========================================================= */
 const $  = s => document.querySelector(s);
 const $$ = s => Array.from(document.querySelectorAll(s));
 
-const nf = (n,d=2) => (isFinite(n)?n:0).toLocaleString("it-IT",{minimumFractionDigits:d,maximumFractionDigits:d});
+const nf  = (n,d=2) => (isFinite(n)?n:0).toLocaleString("it-IT",{minimumFractionDigits:d,maximumFractionDigits:d});
 const eur = n => nf(n,2) + " \u20AC";
 const num = v => { const n = parseFloat(String(v).replace(/\s/g,"").replace(",",".")); return isFinite(n)?n:0; };
 
-function get(path){ return path.split(".").reduce((o,k)=>(o||{})[k], S); }
-function set(path,val){
-  const keys = path.split("."); const last = keys.pop();
-  keys.reduce((o,k)=>o[k], S)[last] = val;
-}
+const get = p => p.split(".").reduce((o,k)=>(o||{})[k], S);
+function set(p,val){ const k = p.split("."); const last = k.pop(); k.reduce((o,x)=>o[x], S)[last] = val; }
 
 let tSave;
 function salva(){
   clearTimeout(tSave);
   $("#stato-salv").textContent = "\u2026";
-  tSave = setTimeout(()=>{ Store.save(S); $("#stato-salv").textContent = Store.persistent ? "salvato" : "sessione"; }, 350);
+  tSave = setTimeout(()=>{
+    Store.save(S);
+    $("#stato-salv").textContent = Store.persistent ? "salvato" : "sessione";
+  }, 350);
 }
 
 function toast(msg, err){
@@ -512,91 +565,186 @@ function toast(msg, err){
   t.textContent = msg;
   t.className = err ? "on err" : "on";
   clearTimeout(t._h);
-  t._h = setTimeout(()=>{ t.className = ""; }, 2600);
+  t._h = setTimeout(()=>{ t.className = ""; }, 2800);
 }
 
-const larghezza = sp => (9 + sp * 0.92).toFixed(1) + "px";
-const oggiISO = () => new Date().toISOString().slice(0,10);
-const dataIT = iso => { if(!iso) return ""; const [a,m,g] = iso.split("-"); return `${g}/${m}/${a}`; };
+const larghezza = sp => (9 + num(sp) * 0.92).toFixed(1) + "px";
+const oggiISO   = () => new Date().toISOString().slice(0,10);
+const dataIT    = iso => { if(!iso) return ""; const [a,m,g] = iso.split("-"); return `${g}/${m}/${a}`; };
+const numeroAuto = () => String(S.contatore).padStart(3,"0") + "/" + new Date().getFullYear();
+
+function hexRgb(h){
+  const s = h.replace("#","");
+  return [parseInt(s.slice(0,2),16), parseInt(s.slice(2,4),16), parseInt(s.slice(4,6),16)];
+}
 
 /* =========================================================
-   MOTORE DI CALCOLO — replica il foglio Excel
+   4. MOTORE DI CALCOLO
    ========================================================= */
-function calcolaRiga(r){
-  const reg   = S.regimi[r.regime] || S.regimi.std;
-  const sc    = num(S.params.sconto) / 100;
+function calcolaRiga(prod, r){
+  const L   = S.listini[prod];
+  const sc  = num(L.params.sconto)/100;
   const netto = num(r.listino) * (1 - sc);
+  const reg = L.regimi[r.regime] || Object.values(L.regimi)[0];
 
   const costoCamion = reg.vettore === "cliente" ? num(reg.cliente) : num(reg.azienda);
-  const perPallet   = num(reg.palletCamion) > 0 ? costoCamion / num(reg.palletCamion) : 0;
-  const mqP         = num(r.mqPallet);
+  const perBancale  = num(reg.palletCamion) > 0 ? costoCamion / num(reg.palletCamion) : 0;
+  const mqP = num(r.mqPallet);
 
-  const trasporto = mqP > 0 ? perPallet / mqP : 0;
-  const pallet    = mqP > 0 ? num(S.params.costoPallet) / mqP : 0;
-  const eurMq     = netto + trasporto + pallet;
-  const eurPz     = num(r.pzPallet) > 0 ? eurMq * mqP / num(r.pzPallet) : 0;
+  const trasporto = mqP > 0 ? perBancale / mqP : 0;
+  const bancaleMq = mqP > 0 ? num(L.params.costoPallet) / mqP : 0;
+  const eurMq  = netto + trasporto;            // bancale escluso: si conteggia a parte
+  const eurPz  = num(r.pzPallet) > 0 ? eurMq * mqP / num(r.pzPallet) : 0;
 
-  return { netto, trasportoPallet:perPallet, trasporto, pallet, eurMq, eurPz, regime:reg };
+  return { L, reg, netto, perBancale, trasporto, bancaleMq,
+           eurMq, eurMqConBancale: eurMq + bancaleMq, eurPz,
+           sconto: num(L.params.sconto), iva: num(L.params.iva) };
 }
 
+const collantePer = sp => S.collante.righe.find(x => num(x.spessore) === num(sp));
+
 function calcolaVoce(v){
-  const r = S.listino.find(x => x.id === v.listinoId);
+  const L = S.listini[v.prod];
+  if(!L) return null;
+  const r = L.righe.find(x => x.id === v.rigaId);
   if(!r) return null;
-  const c   = calcolaRiga(r);
+
+  const c   = calcolaRiga(v.prod, r);
   const q   = num(v.qta);
   const mqP = num(r.mqPallet), pzP = num(r.pzPallet);
 
   let mq;
-  if(v.unita === "pallet")      mq = q * mqP;
-  else if(v.unita === "pezzi")  mq = pzP > 0 ? q / pzP * mqP : 0;
-  else                          mq = q;
+  if(v.unita === "pallet")     mq = q * mqP;
+  else if(v.unita === "pezzi") mq = pzP > 0 ? q / pzP * mqP : 0;
+  else                         mq = q;
 
   const pezzi   = mqP > 0 ? mq / mqP * pzP : 0;
   const bancali = mqP > 0 ? mq / mqP : 0;
-  return { riga:r, c, mq, pezzi, bancali, importo: mq * c.eurMq };
+  const cr      = collantePer(r.spessore);
+
+  return {
+    prod:v.prod, L, riga:r, c, mq, pezzi, bancali,
+    importo: mq * c.eurMq,
+    importoBancali: bancali * num(L.params.costoPallet),
+    kgCollante: cr ? mq * num(cr.kgMq) : 0,
+    collanteNoto: !!cr
+  };
 }
 
 function totali(){
-  let imp = 0, mq = 0, bancali = 0;
   const dett = [];
+  let imponibile = 0, mq = 0, bancali = 0, impBancali = 0, kg = 0;
+  const iveMap = {};
+  const mancanti = [];
+
   S.preventivo.voci.forEach(v => {
     const k = calcolaVoce(v);
     if(!k) return;
-    imp += k.importo; mq += k.mq; bancali += k.bancali;
     dett.push({ v, k });
+    imponibile += k.importo;
+    mq         += k.mq;
+    bancali    += k.bancali;
+    impBancali += k.importoBancali;
+    kg         += k.kgCollante;
+    if(!k.collanteNoto && k.mq > 0) mancanti.push(k.riga.spessore);
+    const a = k.c.iva;
+    iveMap[a] = (iveMap[a] || 0) + k.importo * a / 100;
   });
-  const iva = imp * num(S.params.iva) / 100;
-  return { dett, imponibile:imp, iva, totale: imp + iva, mq, bancali };
+
+  const C = S.collante;
+  const kgS = num(C.kgSacco) > 0 ? num(C.kgSacco) : 25;
+  const sacchi = Math.ceil(kg / kgS - 1e-9);
+  const bancaliColl = num(C.sacchiBancale) > 0 ? sacchi / num(C.sacchiBancale) : 0;
+  const impColl = S.preventivo.collante ? sacchi * num(C.prezzoSacco) : 0;
+
+  if(impColl > 0){
+    imponibile += impColl;
+    const a = num(C.iva);
+    iveMap[a] = (iveMap[a] || 0) + impColl * a / 100;
+  }
+
+  const ive = Object.keys(iveMap)
+    .map(a => ({ aliquota:num(a), importo:iveMap[a] }))
+    .filter(x => x.importo > 0)
+    .sort((x,y) => x.aliquota - y.aliquota);
+  const ivaTot = ive.reduce((s,x) => s + x.importo, 0);
+
+  return {
+    dett, imponibile, ive, iva:ivaTot, totale: imponibile + ivaTot,
+    mq, bancali, impBancali,
+    collante:{ kg, sacchi, bancali:bancaliColl, importo:impColl, mancanti:[...new Set(mancanti)] }
+  };
+}
+
+function camionStimati(){
+  const perProd = {};
+  S.preventivo.voci.forEach(v => {
+    const k = calcolaVoce(v);
+    if(!k) return;
+    const cap = num(k.c.reg.palletCamion) || 1;
+    perProd[v.prod + "|" + k.riga.regime] = (perProd[v.prod + "|" + k.riga.regime] || {cap, b:0});
+    perProd[v.prod + "|" + k.riga.regime].b += k.bancali;
+  });
+  return Object.values(perProd).reduce((s,x) => s + Math.ceil(x.b / x.cap - 1e-9), 0);
 }
 
 /* =========================================================
-   RENDER — PREVENTIVO
+   5. RENDER — PREVENTIVO
    ========================================================= */
-function renderChips(){
-  const usati = new Set(S.preventivo.voci.map(v => v.listinoId));
-  $("#chips").innerHTML = S.listino.map(r => `
-    <button class="chip" data-add="${r.id}" aria-pressed="${usati.has(r.id)}">
-      <span class="profilo" style="width:${larghezza(r.spessore)}"></span>
-      <span class="cm">${r.spessore}</span>
-    </button>`).join("");
+function renderSelettori(){
+  const usati = new Set(S.preventivo.voci.map(v => v.prod + ":" + v.rigaId));
+  let html = "";
+
+  ["evo","act"].forEach(prod => {
+    const L = S.listini[prod];
+    html += `
+      <div class="linea-prod" style="--c:${L.colore}">
+        <div class="testa">
+          <span class="tag">${L.nome}</span>
+          <span class="meta">sconto ${nf(num(L.params.sconto),0)}% &middot; ${nf(num(Object.values(L.regimi)[0].palletCamion),0)} bancali/camion</span>
+        </div>
+        <div class="chips" data-prod="${prod}">
+          ${L.righe.map(r => `
+            <button class="chip" data-add="${prod}|${r.id}" aria-pressed="${usati.has(prod+":"+r.id)}">
+              <span class="profilo${usati.has(prod+":"+r.id)?" sel":""}" style="width:${larghezza(r.spessore)}"></span>
+              <span class="cm">${nf(num(r.spessore),0)}</span>
+            </button>`).join("")}
+        </div>
+      </div>`;
+  });
+
+  html += `
+    <div class="linea-prod" style="--c:${S.collante.colore}">
+      <div class="toggle-riga">
+        <span class="txt">
+          <b>Collante</b>
+          <small>calcolato sui mq delle voci &middot; sacchi da ${nf(num(S.collante.kgSacco),0)} kg</small>
+        </span>
+        <button class="sw" id="sw-collante" aria-pressed="${!!S.preventivo.collante}" aria-label="Includi collante"></button>
+      </div>
+    </div>`;
+
+  $("#selettori").innerHTML = html;
 }
 
 function renderVoci(){
   const box = $("#voci");
   if(!S.preventivo.voci.length){
-    box.innerHTML = `<p class="vuoto">Nessuna voce.<br>Scegli uno spessore qui sopra per iniziare.</p>`;
+    box.innerHTML = `<p class="vuoto">Nessuna voce.<br>Scegli uno spessore Evolution o Active per iniziare.</p>`;
+    aggiornaDerivati();
     return;
   }
   box.innerHTML = S.preventivo.voci.map((v,i) => {
-    const r = S.listino.find(x => x.id === v.listinoId);
+    const L = S.listini[v.prod];
+    const r = L && L.righe.find(x => x.id === v.rigaId);
     if(!r) return "";
     return `
-    <div class="voce" data-i="${i}">
+    <div class="voce" style="--c:${L.colore}">
       <div class="voce-top">
-        <span class="profilo" style="width:${larghezza(r.spessore)}"></span>
+        <span class="profilo sel" style="width:${larghezza(r.spessore)}"></span>
         <span class="voce-nome">
-          <b>Blocco ${r.spessore} cm</b>
-          <small>${nf(r.mqPallet)} mq/bancale &middot; ${r.pzPallet} pz</small>
+          <b>${nf(num(r.spessore),0)} cm</b>
+          <small><em>${L.nome}</em> &middot; ${nf(num(r.mqPallet))} mq/bancale &middot; ${nf(num(r.pzPallet),0)} pz</small>
         </span>
         <button class="del" data-del="${i}" aria-label="Rimuovi voce">&times;</button>
       </div>
@@ -622,6 +770,7 @@ function renderVoci(){
 
 function aggiornaDerivati(){
   const t = totali();
+
   t.dett.forEach(({v,k}) => {
     const i  = S.preventivo.voci.indexOf(v);
     const el = document.querySelector(`[data-r="${i}"]`);
@@ -634,84 +783,171 @@ function aggiornaDerivati(){
       <div class="big"><dt>Importo</dt><dd>${eur(k.importo)}</dd></div>`;
   });
 
-  const regimiUsati = [...new Set(t.dett.map(d => d.k.riga.regime))];
-  const nota = regimiUsati.length
-    ? regimiUsati.map(g => `Trasporto ${S.regimi[g].nome.toLowerCase()}: a carico ${S.regimi[g].vettore}`).join(" \u00B7 ")
-    : "";
+  /* collante */
+  const bc = $("#box-collante");
+  if(S.preventivo.collante && t.dett.length){
+    const c = t.collante;
+    bc.innerHTML = `
+      <div class="card" style="--c:${S.collante.colore};border-left:4px solid ${S.collante.colore}">
+        <p class="eyebrow">Collante</p>
+        <dl class="riepilogo" style="margin:0;padding:0;border:none">
+          <div><dt>Kg totali</dt><dd>${nf(c.kg,1)}</dd></div>
+          <div><dt>Sacchi</dt><dd>${nf(c.sacchi,0)}</dd></div>
+          <div><dt>Bancali</dt><dd>${nf(c.bancali,1)}</dd></div>
+          ${c.importo>0?`<div class="big"><dt>Importo</dt><dd>${eur(c.importo)}</dd></div>`:""}
+        </dl>
+        ${c.mancanti.length?`<p class="hint">Nessun consumo impostato per lo spessore ${c.mancanti.map(x=>nf(num(x),0)).join(", ")}: aggiungilo in Listini &rsaquo; Collante.</p>`:""}
+        ${c.importo===0?`<p class="hint">Solo quantita: imposta il prezzo al sacco per farlo entrare nel totale.</p>`:""}
+      </div>`;
+  } else bc.innerHTML = "";
+
+  /* totali */
+  const righeIva = t.ive.length
+    ? t.ive.map(x => `<div class="riga"><span>IVA ${nf(x.aliquota,0)}%</span><span>${eur(x.importo)}</span></div>`).join("")
+    : `<div class="riga"><span>IVA</span><span>${eur(0)}</span></div>`;
+
+  const prodUsati = [...new Set(t.dett.map(d => d.v.prod))];
+  const nota = prodUsati.map(p => {
+    const L = S.listini[p];
+    const regUsati = [...new Set(t.dett.filter(d => d.v.prod===p).map(d => d.k.riga.regime))];
+    return regUsati.map(g => `${L.nome} ${L.regimi[g].nome.toLowerCase()}: trasporto a carico ${L.regimi[g].vettore}`).join("<br>");
+  }).join("<br>");
 
   $("#totali").innerHTML = `
     <div class="riga"><span>Imponibile</span><span>${eur(t.imponibile)}</span></div>
-    <div class="riga"><span>IVA ${nf(num(S.params.iva),0)}%</span><span>${eur(t.iva)}</span></div>
+    ${righeIva}
     <div class="riga finale"><span>Totale</span><span>${eur(t.totale)}</span></div>
-    ${t.dett.length ? `<p class="nota">${nf(t.mq)} mq &middot; ${nf(t.bancali,1)} bancali &middot; ${Math.ceil(t.bancali/40) || 0} camion stimati<br>${nota}</p>` : ""}`;
+    ${t.dett.length ? `<p class="nota">${nf(t.mq)} mq &middot; ${nf(t.bancali,1)} bancali &middot; ${camionStimati()} camion stimati<br>${nota}</p>` : ""}`;
+
+  /* bancali fuori totale */
+  const bb = $("#box-bancali");
+  if(t.dett.length){
+    bb.style.display = "";
+    bb.innerHTML = `
+      <p class="eyebrow" style="--c:var(--ink)">Bancali &mdash; fuori totale</p>
+      <div class="riga"><span>Bancali</span><span>${nf(t.bancali,1)}</span></div>
+      <div class="riga f2"><span>Importo bancali</span><span>${eur(t.impBancali)}</span></div>
+      <p class="hint">Voce separata, non compresa nel totale qui sopra ne nel PDF.</p>`;
+  } else { bb.style.display = "none"; bb.innerHTML = ""; }
 }
 
 /* =========================================================
-   RENDER — LISTINO
+   6. RENDER — LISTINI
    ========================================================= */
-function renderRegimi(){
-  $("#regimi").innerHTML = Object.entries(S.regimi).map(([k,g]) => `
+function renderRegimi(prod){
+  const L = S.listini[prod];
+  $("#regimi-" + prod).innerHTML = Object.entries(L.regimi).map(([k,g]) => `
     <div class="regime">
-      <h4>${g.nome} <em>${g.palletCamion} bancali/camion</em></h4>
+      <h4>${g.nome} <em>${nf(num(g.palletCamion),0)} bancali/camion</em></h4>
       <div class="grid3">
-        <label class="f"><span>Bancali</span><input class="num" inputmode="numeric" data-p="regimi.${k}.palletCamion"></label>
-        <label class="f"><span>Cliente EUR</span><input class="num" inputmode="decimal" data-p="regimi.${k}.cliente"></label>
-        <label class="f"><span>Azienda EUR</span><input class="num" inputmode="decimal" data-p="regimi.${k}.azienda"></label>
+        <label class="f"><span>Bancali</span><input class="num" inputmode="numeric" data-p="listini.${prod}.regimi.${k}.palletCamion"></label>
+        <label class="f"><span>Cliente EUR</span><input class="num" inputmode="decimal" data-p="listini.${prod}.regimi.${k}.cliente"></label>
+        <label class="f"><span>Azienda EUR</span><input class="num" inputmode="decimal" data-p="listini.${prod}.regimi.${k}.azienda"></label>
       </div>
-      <div class="switch" data-sw="${k}">
+      <div class="switch" data-sw="${prod}|${k}">
         <button data-v="cliente" aria-pressed="${g.vettore==="cliente"}">Autotrasporto cliente</button>
         <button data-v="azienda" aria-pressed="${g.vettore==="azienda"}">Azienda</button>
       </div>
     </div>`).join("");
-  bindPaths($("#regimi"));
+  bindPaths($("#regimi-" + prod));
 }
 
-function renderListino(){
-  $("#listino").innerHTML = S.listino.map((r,i) => `
+function renderRighe(prod){
+  const L = S.listini[prod];
+  const piuRegimi = Object.keys(L.regimi).length > 1;
+  $("#righe-" + prod).innerHTML = L.righe.map((r,i) => `
     <div class="lrow">
       <div class="lrow-head">
-        <span class="profilo" style="width:${larghezza(r.spessore)}"></span>
-        <span class="voce-nome"><b>Spessore ${r.spessore}</b></span>
-        <select class="num" data-reg="${i}" style="width:auto;flex:0 0 auto">
-          ${Object.entries(S.regimi).map(([k,g]) =>
-            `<option value="${k}"${r.regime===k?" selected":""}>${g.nome}</option>`).join("")}
-        </select>
-        <button class="del" data-dl="${i}" aria-label="Elimina spessore">&times;</button>
+        <span class="profilo sel" style="width:${larghezza(r.spessore)}"></span>
+        <span class="voce-nome"><b>Spessore ${nf(num(r.spessore),0)}</b></span>
+        ${piuRegimi ? `<select class="num" data-reg="${prod}|${i}" style="width:auto;flex:0 0 auto">
+          ${Object.entries(L.regimi).map(([k,g]) => `<option value="${k}"${r.regime===k?" selected":""}>${g.nome}</option>`).join("")}
+        </select>` : ""}
+        <button class="del" data-dl="${prod}|${i}" aria-label="Elimina spessore">&times;</button>
       </div>
       <div class="lgrid">
-        <label class="f"><span>Spessore</span><input class="num" inputmode="decimal" data-p="listino.${i}.spessore"></label>
-        <label class="f"><span>mq/bancale</span><input class="num" inputmode="decimal" data-p="listino.${i}.mqPallet"></label>
-        <label class="f"><span>Pz/bancale</span><input class="num" inputmode="numeric" data-p="listino.${i}.pzPallet"></label>
+        <label class="f"><span>Spessore</span><input class="num" inputmode="decimal" data-p="listini.${prod}.righe.${i}.spessore"></label>
+        <label class="f"><span>mq/bancale</span><input class="num" inputmode="decimal" data-p="listini.${prod}.righe.${i}.mqPallet"></label>
+        <label class="f"><span>Pz/bancale</span><input class="num" inputmode="numeric" data-p="listini.${prod}.righe.${i}.pzPallet"></label>
+        <label class="f"><span>EUR/mq listino</span><input class="num" inputmode="decimal" data-p="listini.${prod}.righe.${i}.listino"></label>
       </div>
-      <label class="f"><span>EUR/mq di listino</span><input class="num" inputmode="decimal" data-p="listino.${i}.listino"></label>
-      <dl class="calcolato" data-c="${i}"></dl>
+      <dl class="calcolato" data-c="${prod}|${i}"></dl>
     </div>`).join("");
-  bindPaths($("#listino"));
-  aggiornaCalcolato();
+  bindPaths($("#righe-" + prod));
+}
+
+function renderCollante(){
+  $("#righe-col").innerHTML = S.collante.righe.map((r,i) => {
+    return `
+    <div class="lrow">
+      <div class="lrow-head">
+        <span class="profilo sel" style="width:${larghezza(r.spessore)}"></span>
+        <span class="voce-nome"><b>Spessore ${nf(num(r.spessore),0)}</b></span>
+        <button class="del" data-dl="col|${i}" aria-label="Elimina spessore">&times;</button>
+      </div>
+      <div class="grid2">
+        <label class="f"><span>Spessore</span><input class="num" inputmode="decimal" data-p="collante.righe.${i}.spessore"></label>
+        <label class="f"><span>Collante kg/mq</span><input class="num" inputmode="decimal" data-p="collante.righe.${i}.kgMq"></label>
+      </div>
+      <dl class="calcolato" data-cc="${i}"></dl>
+    </div>`;
+  }).join("");
+  bindPaths($("#righe-col"));
+}
+
+function mqBancaleDi(sp){
+  for(const p of ["act","evo"]){
+    const r = S.listini[p].righe.find(x => num(x.spessore) === num(sp));
+    if(r) return num(r.mqPallet);
+  }
+  return 0;
 }
 
 function aggiornaCalcolato(){
-  S.listino.forEach((r,i) => {
-    const el = document.querySelector(`[data-c="${i}"]`);
+  ["evo","act"].forEach(prod => {
+    S.listini[prod].righe.forEach((r,i) => {
+      const el = document.querySelector(`[data-c="${prod}|${i}"]`);
+      if(!el) return;
+      const c = calcolaRiga(prod, r);
+      el.innerHTML = `
+        <div><dt>Netto</dt><dd>${nf(c.netto)}</dd></div>
+        <div><dt>Trasp.</dt><dd>${nf(c.trasporto)}</dd></div>
+        <div class="key"><dt>EUR/mq</dt><dd>${nf(c.eurMq)}</dd></div>
+        <div class="key"><dt>EUR/pz</dt><dd>${nf(c.eurPz)}</dd></div>
+        <div><dt>Bancale/mq</dt><dd>${nf(c.bancaleMq)}</dd></div>`;
+    });
+  });
+
+  const C = S.collante;
+  const kgS = num(C.kgSacco) > 0 ? num(C.kgSacco) : 25;
+  const sim = num(C.bancaliSim);
+  C.righe.forEach((r,i) => {
+    const el = document.querySelector(`[data-cc="${i}"]`);
     if(!el) return;
-    const c = calcolaRiga(r);
+    const mqB    = mqBancaleDi(r.spessore);
+    const kgB    = num(r.kgMq) * mqB;
+    const kgTot  = kgB * sim;
+    const sacchi = kgTot / kgS;
     el.innerHTML = `
-      <div><dt>Netto</dt><dd>${nf(c.netto)}</dd></div>
-      <div><dt>Trasp.</dt><dd>${nf(c.trasporto)}</dd></div>
-      <div><dt>Bancale</dt><dd>${nf(c.pallet)}</dd></div>
-      <div class="key"><dt>EUR/mq</dt><dd>${nf(c.eurMq)}</dd></div>
-      <div class="key"><dt>EUR/pz</dt><dd>${nf(c.eurPz)}</dd></div>`;
+      <div><dt>mq/banc.</dt><dd>${mqB?nf(mqB):"\u2014"}</dd></div>
+      <div class="key"><dt>Kg/banc.</dt><dd>${nf(kgB)}</dd></div>
+      <div><dt>Kg tot.</dt><dd>${nf(kgTot,0)}</dd></div>
+      <div><dt>Sacchi</dt><dd>${nf(sacchi,1)}</dd></div>`;
   });
 }
 
 /* =========================================================
-   BINDING GENERICO data-p="percorso.nel.modello"
+   7. BINDING data-p
    ========================================================= */
-const CAMPI_NUM = ["sconto","costoPallet","iva","palletCamion","cliente","azienda","spessore","mqPallet","pzPallet","listino"];
+const CAMPI_NUM = ["sconto","costoPallet","iva","palletCamion","cliente","azienda",
+                   "spessore","mqPallet","pzPallet","listino","kgMq","kgSacco",
+                   "sacchiBancale","prezzoSacco","bancaliSim"];
 
 function bindPaths(root){
   root.querySelectorAll("[data-p]").forEach(el => {
-    const path = el.dataset.p;
+    if(el._bound) return;
+    el._bound = true;
+    const path  = el.dataset.p;
     const isNum = CAMPI_NUM.includes(path.split(".").pop());
     const v = get(path);
     el.value = isNum ? String(v ?? "").replace(".", ",") : (v ?? "");
@@ -720,22 +956,28 @@ function bindPaths(root){
       salva();
       aggiornaCalcolato();
       aggiornaDerivati();
-      if(path.startsWith("listino.") && path.endsWith(".spessore")) renderChips();
+      renderSelettori();   // tiene allineate le etichette sconto/camion
     });
   });
 }
 
 /* =========================================================
-   EVENTI
+   8. EVENTI
    ========================================================= */
-// tab
 $$("nav button").forEach(b => b.addEventListener("click", () => {
   $$("nav button").forEach(x => x.setAttribute("aria-selected", x === b));
   $$(".panel").forEach(p => p.classList.toggle("on", p.id === b.dataset.tab));
   window.scrollTo(0,0);
 }));
 
-// campi testata preventivo
+$("#seg-list").addEventListener("click", e => {
+  const b = e.target.closest("[data-sub]");
+  if(!b) return;
+  $$("#seg-list button").forEach(x => x.setAttribute("aria-selected", x === b));
+  $$(".sub").forEach(s => s.classList.toggle("on", s.id === b.dataset.sub));
+  window.scrollTo(0,0);
+});
+
 [["c-cliente","cliente"],["c-cantiere","cantiere"],["c-numero","numero"],["c-data","data"],["c-validita","validita"]]
 .forEach(([id,k]) => {
   const el = $("#"+id);
@@ -743,18 +985,25 @@ $$("nav button").forEach(b => b.addEventListener("click", () => {
   el.addEventListener("input", () => { S.preventivo[k] = el.value; salva(); });
 });
 
-// aggiungi voce
-$("#chips").addEventListener("click", e => {
+/* aggiungi voce / interruttore collante */
+$("#selettori").addEventListener("click", e => {
+  const sw = e.target.closest("#sw-collante");
+  if(sw){
+    S.preventivo.collante = !S.preventivo.collante;
+    sw.setAttribute("aria-pressed", S.preventivo.collante);
+    salva(); aggiornaDerivati();
+    return;
+  }
   const b = e.target.closest("[data-add]");
   if(!b) return;
-  const id = b.dataset.add;
-  const esiste = S.preventivo.voci.find(v => v.listinoId === id);
-  if(esiste){ toast("Spessore gia in preventivo"); return; }
-  S.preventivo.voci.push({ listinoId:id, qta:1, unita:"pallet" });
-  salva(); renderVoci(); renderChips();
+  const [prod, rigaId] = b.dataset.add.split("|");
+  if(S.preventivo.voci.some(v => v.prod === prod && v.rigaId === rigaId)){
+    toast("Spessore gia in preventivo"); return;
+  }
+  S.preventivo.voci.push({ prod, rigaId, qta:1, unita:"pallet" });
+  salva(); renderVoci(); renderSelettori();
 });
 
-// voci: quantita, unita, elimina
 $("#voci").addEventListener("input", e => {
   const q = e.target.dataset.q;
   if(q !== undefined){ S.preventivo.voci[+q].qta = num(e.target.value); salva(); aggiornaDerivati(); }
@@ -767,65 +1016,100 @@ $("#voci").addEventListener("click", e => {
   const b = e.target.closest("[data-del]");
   if(!b) return;
   S.preventivo.voci.splice(+b.dataset.del, 1);
-  salva(); renderVoci(); renderChips();
+  salva(); renderVoci(); renderSelettori();
 });
 
-// switch trasporto
-$("#regimi").addEventListener("click", e => {
-  const b = e.target.closest("[data-v]");
-  if(!b) return;
-  const k = b.closest("[data-sw]").dataset.sw;
-  S.regimi[k].vettore = b.dataset.v;
-  salva(); renderRegimi(); aggiornaCalcolato(); aggiornaDerivati();
+/* switch trasporto */
+["evo","act"].forEach(prod => {
+  $("#regimi-" + prod).addEventListener("click", e => {
+    const b = e.target.closest("[data-v]");
+    if(!b) return;
+    const [p,k] = b.closest("[data-sw]").dataset.sw.split("|");
+    S.listini[p].regimi[k].vettore = b.dataset.v;
+    salva(); renderRegimi(p); aggiornaCalcolato(); aggiornaDerivati(); renderSelettori();
+  });
 });
 
-// listino: regime + elimina
-$("#listino").addEventListener("change", e => {
-  const i = e.target.dataset.reg;
-  if(i !== undefined){ S.listino[+i].regime = e.target.value; salva(); aggiornaCalcolato(); aggiornaDerivati(); }
+/* listini: regime, elimina riga */
+["evo","act"].forEach(prod => {
+  const box = $("#righe-" + prod);
+  box.addEventListener("change", e => {
+    const d = e.target.dataset.reg;
+    if(d === undefined) return;
+    const [p,i] = d.split("|");
+    S.listini[p].righe[+i].regime = e.target.value;
+    salva(); aggiornaCalcolato(); aggiornaDerivati();
+  });
+  box.addEventListener("click", e => {
+    const b = e.target.closest("[data-dl]");
+    if(!b) return;
+    const [p,i] = b.dataset.dl.split("|");
+    const r = S.listini[p].righe[+i];
+    if(!confirm(`Eliminare lo spessore ${nf(num(r.spessore),0)} dal listino ${S.listini[p].nome}?`)) return;
+    S.preventivo.voci = S.preventivo.voci.filter(v => !(v.prod === p && v.rigaId === r.id));
+    S.listini[p].righe.splice(+i, 1);
+    salva(); renderRighe(p); aggiornaCalcolato(); renderSelettori(); renderVoci();
+  });
 });
-$("#listino").addEventListener("click", e => {
+
+$("#righe-col").addEventListener("click", e => {
   const b = e.target.closest("[data-dl]");
   if(!b) return;
-  const r = S.listino[+b.dataset.dl];
-  if(!confirm(`Eliminare lo spessore ${r.spessore}?`)) return;
-  S.preventivo.voci = S.preventivo.voci.filter(v => v.listinoId !== r.id);
-  S.listino.splice(+b.dataset.dl, 1);
-  salva(); renderListino(); renderChips(); renderVoci();
+  const i = +b.dataset.dl.split("|")[1];
+  if(!confirm(`Eliminare il consumo collante per lo spessore ${nf(num(S.collante.righe[i].spessore),0)}?`)) return;
+  S.collante.righe.splice(i, 1);
+  salva(); renderCollante(); aggiornaCalcolato(); aggiornaDerivati();
 });
 
-$("#btn-add-sp").addEventListener("click", () => {
-  S.listino.push({ id:uid(), spessore:0, mqPallet:1, pzPallet:1, listino:0, regime:"std" });
-  salva(); renderListino(); renderChips();
+/* aggiungi riga */
+$$("[data-add-riga]").forEach(b => b.addEventListener("click", () => {
+  const p = b.dataset.addRiga;
+  if(p === "col"){
+    S.collante.righe.push({ id:uid(), spessore:0, kgMq:0 });
+    salva(); renderCollante(); aggiornaCalcolato();
+  } else {
+    S.listini[p].righe.push({ id:uid(), spessore:0, mqPallet:1, pzPallet:1, listino:0, regime:Object.keys(S.listini[p].regimi)[0] });
+    salva(); renderRighe(p); aggiornaCalcolato(); renderSelettori();
+  }
   window.scrollTo(0, document.body.scrollHeight);
-});
+}));
 
-$("#btn-reset").addEventListener("click", () => {
-  if(!confirm("Ripristinare i valori del listino 2026? Le voci del preventivo in corso verranno svuotate.")) return;
-  S.listino = listinoDefault();
-  S.preventivo.voci = [];
-  salva(); renderListino(); renderChips(); renderVoci();
-  toast("Listino ripristinato");
-});
+/* ripristina */
+$$("[data-reset]").forEach(b => b.addEventListener("click", () => {
+  const p = b.dataset.reset;
+  if(p === "col"){
+    if(!confirm("Ripristinare la tabella collante 2026?")) return;
+    S.collante.righe = righeCollante();
+    salva(); renderCollante(); aggiornaCalcolato(); aggiornaDerivati();
+    toast("Collante ripristinato");
+    return;
+  }
+  const L = S.listini[p];
+  if(!confirm(`Ripristinare il listino ${L.nome} 2026? Le voci di questo listino verranno tolte dal preventivo.`)) return;
+  L.righe = righeDa(p === "evo" ? EVO_2026 : ACT_2026);
+  S.preventivo.voci = S.preventivo.voci.filter(v => v.prod !== p);
+  salva(); renderRighe(p); aggiornaCalcolato(); renderSelettori(); renderVoci();
+  toast(`Listino ${L.nome} ripristinato`);
+}));
 
+/* nuovo preventivo */
 $("#btn-nuovo").addEventListener("click", () => {
   if(!confirm("Iniziare un nuovo preventivo? I dati attuali verranno azzerati.")) return;
   S.contatore = (S.contatore || 0) + 1;
-  S.preventivo = { cliente:"", cantiere:"", numero:numeroAuto(), data:oggiISO(), validita:30, voci:[] };
+  S.preventivo = { cliente:"", cantiere:"", numero:numeroAuto(), data:oggiISO(), validita:30, collante:false, voci:[] };
   salva();
-  ["c-cliente","c-cantiere","c-numero","c-data","c-validita"].forEach((id,n) => {
-    $("#"+id).value = S.preventivo[["cliente","cantiere","numero","data","validita"][n]];
-  });
-  renderVoci(); renderChips();
+  $("#c-cliente").value  = "";
+  $("#c-cantiere").value = "";
+  $("#c-numero").value   = S.preventivo.numero;
+  $("#c-data").value     = S.preventivo.data;
+  $("#c-validita").value = S.preventivo.validita;
+  renderVoci();          // ricalcola anche totali, collante e bancali
+  renderSelettori();
+  window.scrollTo(0,0);
   toast("Nuovo preventivo pronto");
 });
 
-function numeroAuto(){
-  const a = new Date().getFullYear();
-  return String(S.contatore).padStart(3,"0") + "/" + a;
-}
-
-/* ---------- logo ---------- */
+/* logo */
 function renderLogo(){
   $("#logo-prev").innerHTML = S.azienda.logo
     ? `<img src="${S.azienda.logo}" alt="Logo">`
@@ -839,13 +1123,11 @@ $("#file-logo").addEventListener("change", e => {
   fr.onload = () => {
     const img = new Image();
     img.onload = () => {
-      // ridimensiona a max 700 px di lato per non gonfiare il salvataggio
       const scala = Math.min(1, 700 / Math.max(img.width, img.height));
       const cv = document.createElement("canvas");
-      cv.width = Math.round(img.width * scala);
+      cv.width  = Math.round(img.width  * scala);
       cv.height = Math.round(img.height * scala);
-      const ctx = cv.getContext("2d");
-      ctx.drawImage(img, 0, 0, cv.width, cv.height);
+      cv.getContext("2d").drawImage(img, 0, 0, cv.width, cv.height);
       S.azienda.logo = cv.toDataURL("image/png");
       salva(); renderLogo(); toast("Logo caricato");
     };
@@ -857,7 +1139,7 @@ $("#file-logo").addEventListener("change", e => {
 });
 $("#btn-logo-del").addEventListener("click", () => { S.azienda.logo = ""; salva(); renderLogo(); });
 
-/* ---------- backup ---------- */
+/* backup */
 $("#btn-export").addEventListener("click", () => {
   const blob = new Blob([JSON.stringify(S,null,2)], {type:"application/json"});
   const a = document.createElement("a");
@@ -874,9 +1156,8 @@ $("#file-import").addEventListener("change", e => {
   fr.onload = () => {
     try{
       const o = JSON.parse(fr.result);
-      if(!o.listino || !o.params) throw new Error("formato");
-      S = Object.assign(statoDefault(), o);
-      Store.save(S);
+      if(!o.listini && !o.listino) throw new Error("formato");
+      Store.save(migra(o));
       location.reload();
     }catch(err){ toast("File di backup non valido", true); }
   };
@@ -885,172 +1166,227 @@ $("#file-import").addEventListener("change", e => {
 });
 
 /* =========================================================
-   PDF
+   9. PDF
    ========================================================= */
-const BLU = [15,76,129], GIALLO = [242,177,52], GRIGIO = [96,103,112], LINEA = [203,206,199], CHALK = [231,233,228];
+const GIALLO = [242,177,52], GRIGIO = [96,103,112], LINEA = [203,206,199],
+      CHALK = [231,233,228], NERO = [21,24,27], BIANCO = [255,255,255];
 
 $("#btn-pdf").addEventListener("click", () => {
-  if(!window.jspdf){ toast("Libreria PDF non caricata: riprova online", true); return; }
+  if(!window.jspdf){ toast("Libreria PDF non caricata: apri l'app una volta online", true); return; }
   const t = totali();
   if(!t.dett.length){ toast("Aggiungi almeno una voce", true); return; }
-  try { generaPDF(t); } catch(err){ console.error(err); toast("Errore nella generazione del PDF", true); }
+  try { generaPDF(t); }
+  catch(err){ console.error(err); toast("Errore nella generazione del PDF", true); }
 });
 
 function generaPDF(t){
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({ unit:"mm", format:"a4" });
   const L = 15, R = 195, W = R - L;
+  const az = S.azienda, p = S.preventivo;
+  const BLU = hexRgb(S.listini.evo.colore);
   let y = 0;
 
-  const pagina = () => {
+  const bordo = () => {
     doc.setFillColor(...BLU); doc.rect(0, 0, 210, 4, "F");
     doc.setFillColor(...GIALLO); doc.rect(0, 4, 210, 1.2, "F");
   };
-  const spazio = h => { if(y + h > 275){ doc.addPage(); pagina(); y = 22; } };
+  const spazio = h => { if(y + h > 274){ doc.addPage(); bordo(); y = 22; return true; } return false; };
 
-  pagina();
+  bordo();
   y = 20;
 
-  /* ---- intestazione ---- */
-  const az = S.azienda;
+  /* ---------- intestazione ---------- */
   if(az.logo){
     try{
-      const p = az.logo.split(",")[0].includes("jpeg") ? "JPEG" : "PNG";
       const pr = doc.getImageProperties(az.logo);
-      const maxW = 44, maxH = 20;
-      const s = Math.min(maxW / pr.width, maxH / pr.height);
-      doc.addImage(az.logo, p, L, y, pr.width * s, pr.height * s);
+      const s  = Math.min(44 / pr.width, 20 / pr.height);
+      doc.addImage(az.logo, "PNG", L, y, pr.width * s, pr.height * s);
     }catch(e){}
   }
-  doc.setFont("helvetica","bold").setFontSize(10.5).setTextColor(21,24,27);
+  doc.setFont("helvetica","bold").setFontSize(10.5).setTextColor(...NERO);
   doc.text(az.nome || "", R, y + 3, {align:"right"});
   doc.setFont("helvetica","normal").setFontSize(8.2).setTextColor(...GRIGIO);
-  const testata = [az.indirizzo, az.piva ? "P.IVA " + az.piva : "", [az.tel, az.email].filter(Boolean).join("  \u00B7  ")].filter(Boolean);
+  const testata = [az.indirizzo, az.piva ? "P.IVA " + az.piva : "",
+                   [az.tel, az.email].filter(Boolean).join("  \u00B7  ")].filter(Boolean);
   testata.forEach((r,i) => doc.text(r, R, y + 8 + i * 4, {align:"right"}));
   y += Math.max(24, 8 + testata.length * 4 + 4);
 
   doc.setDrawColor(...LINEA).setLineWidth(.3).line(L, y, R, y);
   y += 9;
 
-  /* ---- titolo ---- */
-  const p = S.preventivo;
+  /* ---------- titolo ---------- */
   doc.setFont("helvetica","bold").setFontSize(17).setTextColor(...BLU);
   doc.text("PREVENTIVO", L, y);
   doc.setFont("helvetica","normal").setFontSize(9).setTextColor(...GRIGIO);
   doc.text(`N. ${p.numero || "\u2014"}   del ${dataIT(p.data) || dataIT(oggiISO())}`, R, y, {align:"right"});
   y += 8;
 
-  /* ---- cliente ---- */
+  /* ---------- cliente ---------- */
   doc.setFillColor(...CHALK); doc.rect(L, y, W, 17, "F");
   doc.setFont("helvetica","bold").setFontSize(7).setTextColor(...GRIGIO);
   doc.text("CLIENTE", L + 4, y + 5.5);
   doc.text("CANTIERE", L + W/2 + 2, y + 5.5);
-  doc.setFont("helvetica","bold").setFontSize(10.5).setTextColor(21,24,27);
+  doc.setFont("helvetica","bold").setFontSize(10.5).setTextColor(...NERO);
   doc.text(p.cliente || "\u2014", L + 4, y + 12, {maxWidth: W/2 - 8});
   doc.text(p.cantiere || "\u2014", L + W/2 + 2, y + 12, {maxWidth: W/2 - 8});
   y += 25;
 
-  /* ---- tabella A: composizione del prezzo ---- */
-  const sc = num(S.params.sconto);
-  titolo("COMPOSIZIONE DEL PREZZO UNITARIO");
-  tabella(
-    [
-      {t:"Sp.",             w:14, a:"left"},
-      {t:"Listino",         w:24, a:"right"},
-      {t:`Sconto ${nf(sc,0)}%`, w:24, a:"right"},
-      {t:"Netto",           w:24, a:"right"},
-      {t:"Trasporto",       w:26, a:"right"},
-      {t:"Bancale",         w:24, a:"right"},
-      {t:"EUR/mq",          w:24, a:"right"},
-      {t:"EUR/pz",          w:20, a:"right"}
-    ],
-    t.dett.map(({k}) => [
-      k.riga.spessore + "",
-      nf(k.riga.listino),
-      "-" + nf(num(k.riga.listino) * sc / 100),
-      nf(k.c.netto),
-      nf(k.c.trasporto),
-      nf(k.c.pallet),
-      nf(k.c.eurMq),
-      nf(k.c.eurPz)
-    ]),
-    [6]
-  );
-  y += 3;
-  doc.setFont("helvetica","italic").setFontSize(7.2).setTextColor(...GRIGIO);
-  doc.text("Valori al metro quadro. Trasporto e bancale gia ripartiti sul prezzo finale.", L, y);
-  y += 10;
+  /* ---------- composizione del prezzo, un blocco per listino ---------- */
+  const prodUsati = ["evo","act"].filter(k => t.dett.some(d => d.v.prod === k));
 
-  /* ---- tabella B: righe ---- */
-  titolo("VOCI DEL PREVENTIVO");
-  tabella(
-    [
-      {t:"Sp.",      w:16, a:"left"},
-      {t:"Bancali",  w:26, a:"right"},
-      {t:"mq",       w:28, a:"right"},
-      {t:"Pezzi",    w:26, a:"right"},
-      {t:"EUR/mq",   w:30, a:"right"},
-      {t:"Importo",  w:54, a:"right"}
-    ],
-    t.dett.map(({k}) => [
-      k.riga.spessore + "",
-      nf(k.bancali,1),
-      nf(k.mq),
-      nf(k.pezzi,0),
-      nf(k.c.eurMq),
-      nf(k.importo)
-    ]),
-    [5]
-  );
-  y += 6;
+  prodUsati.forEach(prod => {
+    const Ls  = S.listini[prod];
+    const col = hexRgb(Ls.colore);
+    const rr  = t.dett.filter(d => d.v.prod === prod);
+    titolo(`COMPOSIZIONE DEL PREZZO \u2014 GASBETON ${Ls.nome.toUpperCase()}`, col);
+    tabella(
+      [{t:"Sp.",w:16,a:"left"},{t:"Listino",w:28,a:"right"},
+       {t:`Sconto ${nf(num(Ls.params.sconto),0)}%`,w:28,a:"right"},
+       {t:"Netto",w:28,a:"right"},{t:"Trasporto",w:30,a:"right"},
+       {t:"EUR/mq",w:28,a:"right"},{t:"EUR/pz",w:22,a:"right"}],
+      rr.map(({k}) => [
+        nf(num(k.riga.spessore),0),
+        nf(num(k.riga.listino)),
+        "-" + nf(num(k.riga.listino) * num(Ls.params.sconto) / 100),
+        nf(k.c.netto), nf(k.c.trasporto), nf(k.c.eurMq), nf(k.c.eurPz)
+      ]),
+      [5], col
+    );
+    y += 3;
+    doc.setFont("helvetica","italic").setFontSize(7.2).setTextColor(...GRIGIO);
+    doc.text("Valori al metro quadro, trasporto incluso. Bancali conteggiati a parte in fondo.", L, y);
+    y += 9;
+  });
 
-  /* ---- totali ---- */
-  spazio(40);
-  const bx = R - 78;
-  const riga = (lab, val, grande) => {
+  /* ---------- voci ---------- */
+  titolo("VOCI DEL PREVENTIVO", BLU);
+  tabella(
+    [{t:"Prodotto",w:28,a:"left"},{t:"Sp.",w:14,a:"right"},{t:"Bancali",w:24,a:"right"},
+     {t:"mq",w:26,a:"right"},{t:"Pezzi",w:24,a:"right"},{t:"EUR/mq",w:26,a:"right"},
+     {t:"Importo",w:38,a:"right"}],
+    t.dett.map(({k}) => [
+      k.L.nome, nf(num(k.riga.spessore),0), nf(k.bancali,1),
+      nf(k.mq), nf(k.pezzi,0), nf(k.c.eurMq), nf(k.importo)
+    ]),
+    [6], BLU
+  );
+  y += 8;
+
+  /* ---------- collante ---------- */
+  const C = S.collante, cc = t.collante;
+  if(p.collante && cc.kg > 0){
+    const colC = hexRgb(C.colore);
+    titolo("COLLANTE", colC);
+    const conPrezzo = cc.importo > 0;
+    const kgS = num(C.kgSacco) > 0 ? num(C.kgSacco) : 25;
+    tabella(
+      [{t:"Prodotto",w:30,a:"left"},{t:"Sp.",w:16,a:"right"},{t:"Kg/mq",w:28,a:"right"},
+       {t:"mq",w:32,a:"right"},{t:"Kg",w:36,a:"right"},{t:"Sacchi",w:38,a:"right"}],
+      t.dett.filter(d => d.k.kgCollante > 0).map(({k}) => {
+        const cr = collantePer(k.riga.spessore);
+        return [k.L.nome, nf(num(k.riga.spessore),0), nf(num(cr.kgMq)),
+                nf(k.mq), nf(k.kgCollante,1), nf(k.kgCollante / kgS, 1)];
+      }),
+      [4], colC
+    );
+    y += 4;
+    doc.setFont("helvetica","normal").setFontSize(8.4).setTextColor(...NERO);
+    const riga1 = `Totale ${nf(cc.kg,1)} kg  \u00B7  ${nf(cc.sacchi,0)} sacchi da ${nf(kgS,0)} kg  \u00B7  ${nf(cc.bancali,1)} bancali di collante`;
+    doc.text(riga1, L, y);
+    y += 5;
+    if(conPrezzo){
+      doc.setFont("helvetica","bold");
+      doc.text(`Importo collante: ${nf(cc.importo)} EUR  (${nf(num(C.prezzoSacco))} EUR/sacco)`, L, y);
+      y += 5;
+    }
+    y += 4;
+  }
+
+  /* ---------- totali, bancali esclusi ---------- */
+  spazio(46);
+  const bx = R - 82;
+  const rigaTot = (lab, val, grande) => {
     doc.setFont("helvetica", grande ? "bold" : "normal").setFontSize(grande ? 11 : 9);
-    doc.setTextColor(...(grande ? [255,255,255] : GRIGIO));
+    doc.setTextColor(...(grande ? BIANCO : GRIGIO));
     doc.text(lab, bx + 4, y);
     doc.setFont("helvetica","bold").setFontSize(grande ? 13 : 9.5);
-    doc.setTextColor(...(grande ? [255,255,255] : [21,24,27]));
+    doc.setTextColor(...(grande ? BIANCO : NERO));
     doc.text(val, R - 4, y, {align:"right"});
-    y += grande ? 0 : 6;
+    if(!grande) y += 6;
   };
-  riga("Imponibile", nf(t.imponibile) + " EUR");
-  riga(`IVA ${nf(num(S.params.iva),0)}%`, nf(t.iva) + " EUR");
+  rigaTot("Imponibile", nf(t.imponibile) + " EUR");
+  t.ive.forEach(x => rigaTot(`IVA ${nf(x.aliquota,0)}%`, nf(x.importo) + " EUR"));
   y += 1;
-  doc.setFillColor(...BLU); doc.rect(bx, y, 78, 13, "F");
+  doc.setFillColor(...BLU); doc.rect(bx, y, 82, 13, "F");
   y += 8.6;
-  riga("TOTALE", nf(t.totale) + " EUR", true);
-  y += 12;
+  rigaTot("TOTALE", nf(t.totale) + " EUR", true);
+  y += 13;
 
-  /* ---- note ---- */
-  spazio(46);
-  const regimiUsati = [...new Set(t.dett.map(d => d.k.riga.regime))];
+  /* ---------- bancali, fuori totale ---------- */
+  spazio(50);
+  titolo("BANCALI \u2014 NON COMPRESI NEL TOTALE", [122,98,72]);
+  tabella(
+    [{t:"Prodotto",w:34,a:"left"},{t:"Sp.",w:20,a:"right"},{t:"Bancali",w:34,a:"right"},
+     {t:"EUR cad.",w:40,a:"right"},{t:"Importo",w:52,a:"right"}],
+    t.dett.map(({k}) => [
+      k.L.nome, nf(num(k.riga.spessore),0), nf(k.bancali,1),
+      nf(num(k.L.params.costoPallet)), nf(k.importoBancali)
+    ]),
+    [4], [122,98,72]
+  );
+  y += 4;
+  doc.setFillColor(...CHALK); doc.rect(bx, y - 3, 82, 11, "F");
+  doc.setFont("helvetica","bold").setFontSize(9).setTextColor(...NERO);
+  doc.text("Totale bancali", bx + 4, y + 4);
+  doc.setFontSize(11);
+  doc.text(nf(t.impBancali) + " EUR", R - 4, y + 4, {align:"right"});
+  y += 13;
+  doc.setFont("helvetica","italic").setFontSize(7.5).setTextColor(...GRIGIO);
+  doc.text("Importo dei bancali indicato separatamente e non incluso nel totale sopra riportato.", L, y);
+  y += 10;
+
+  /* ---------- condizioni ---------- */
+  spazio(44);
   const note = [
-    `Quantita complessiva: ${nf(t.mq)} mq  \u00B7  ${nf(t.bancali,1)} bancali  \u00B7  ${Math.ceil(t.bancali/40)} camion stimati`,
-    ...regimiUsati.map(g => `Trasporto ${S.regimi[g].nome.toLowerCase()}: a carico ${S.regimi[g].vettore === "cliente" ? "del cliente" : "dell'azienda"} \u2014 ${nf(S.regimi[g].palletCamion,0)} bancali per camion`),
+    `Quantita complessiva: ${nf(t.mq)} mq  \u00B7  ${nf(t.bancali,1)} bancali  \u00B7  ${camionStimati()} camion stimati`,
+    ...prodUsati.map(prod => {
+      const Ls = S.listini[prod];
+      const regUsati = [...new Set(t.dett.filter(d => d.v.prod === prod).map(d => d.k.riga.regime))];
+      return regUsati.map(g => {
+        const G = Ls.regimi[g];
+        return `Trasporto ${Ls.nome} ${G.nome.toLowerCase()}: a carico ${G.vettore === "cliente" ? "del cliente" : "dell'azienda"} \u2014 ${nf(num(G.palletCamion),0)} bancali per camion`;
+      }).join("\n");
+    }),
     p.validita ? `Offerta valida ${p.validita} giorni dalla data di emissione.` : ""
   ].filter(Boolean);
 
   doc.setFont("helvetica","bold").setFontSize(7.5).setTextColor(...BLU);
   doc.text("CONDIZIONI", L, y); y += 5;
   doc.setFont("helvetica","normal").setFontSize(8).setTextColor(...GRIGIO);
-  note.concat((az.condizioni || "").split("\n").filter(Boolean)).forEach(r => {
+  note.join("\n").split("\n").concat((az.condizioni || "").split("\n"))
+     .filter(Boolean).forEach(r => {
     const righe = doc.splitTextToSize(r, W - 4);
     spazio(righe.length * 4 + 2);
     doc.text(righe, L, y);
     y += righe.length * 4 + 1.4;
   });
 
-  /* ---- firma ---- */
-  y += 10;
-  spazio(24);
-  doc.setDrawColor(...LINEA).line(R - 62, y, R, y);
-  doc.setFont("helvetica","normal").setFontSize(7.5).setTextColor(...GRIGIO);
-  doc.text(az.referente || az.nome || "", R - 62, y + 4.5);
+  /* ---------- firme ---------- */
+  y += 14;
+  if(y < 246 && y + 26 <= 274) y = 246;
+  spazio(26);
+  doc.setFont("helvetica","bold").setFontSize(7).setTextColor(...GRIGIO);
+  doc.text("PER ACCETTAZIONE, IL CLIENTE", L, y);
+  doc.text("PER " + (az.nome || "L'AZIENDA").toUpperCase(), R - 70, y);
+  y += 12;
+  doc.setDrawColor(...LINEA).setLineWidth(.3);
+  doc.line(L, y, L + 70, y);
+  doc.line(R - 70, y, R, y);
+  doc.setFont("helvetica","normal").setFontSize(7.5);
+  doc.text(az.referente || "", R - 70, y + 4.5);
 
-  /* ---- piè di pagina su tutte le pagine ---- */
+  /* ---------- piede ---------- */
   const n = doc.getNumberOfPages();
   for(let i = 1; i <= n; i++){
     doc.setPage(i);
@@ -1063,43 +1399,44 @@ function generaPDF(t){
   doc.save(nome);
   toast("PDF generato");
 
-  /* ---- helper locali ---- */
-  function titolo(txt){
-    spazio(14);
-    doc.setFont("helvetica","bold").setFontSize(8).setTextColor(...BLU);
+  /* ---------- helper ---------- */
+  function titolo(txt, col){
+    spazio(15);
+    doc.setFont("helvetica","bold").setFontSize(8).setTextColor(...col);
     doc.text(txt, L, y);
     doc.setDrawColor(...GIALLO).setLineWidth(.9).line(L, y + 1.9, L + 26, y + 1.9);
     y += 7;
   }
 
-  function tabella(cols, righe, evidenzia){
+  function tabella(cols, righe, grassetti, col){
     const H = 7.2;
     const xs = []; let acc = L;
     cols.forEach(c => { xs.push(acc); acc += c.w; });
     const totW = acc - L;
 
-    const intestazione = () => {
-      doc.setFillColor(...BLU); doc.rect(L, y, totW, 6.6, "F");
-      doc.setFont("helvetica","bold").setFontSize(7).setTextColor(255,255,255);
+    const intesta = () => {
+      doc.setFillColor(...col); doc.rect(L, y, totW, 6.6, "F");
+      doc.setFont("helvetica","bold").setFontSize(7).setTextColor(...BIANCO);
       cols.forEach((c,i) => {
         if(!c.t) return;
-        doc.text(c.t, c.a === "right" ? xs[i] + c.w - 2.5 : xs[i] + 2.5, y + 4.5, {align: c.a === "right" ? "right" : "left"});
+        doc.text(c.t, c.a === "right" ? xs[i] + c.w - 2.5 : xs[i] + 2.5, y + 4.5,
+                 {align: c.a === "right" ? "right" : "left"});
       });
       y += 6.6;
     };
 
     spazio(6.6 + H * 2);
-    intestazione();
+    intesta();
 
     righe.forEach((r,ri) => {
-      if(y + H > 275){ doc.addPage(); pagina(); y = 22; intestazione(); }
-      if(ri % 2) { doc.setFillColor(246,247,244); doc.rect(L, y, totW, H, "F"); }
+      if(y + H > 274){ doc.addPage(); bordo(); y = 22; intesta(); }
+      if(ri % 2){ doc.setFillColor(246,247,244); doc.rect(L, y, totW, H, "F"); }
       r.forEach((cell,i) => {
-        if(cell === "") return;
-        const grassetto = evidenzia && evidenzia.includes(i);
-        doc.setFont("helvetica", grassetto ? "bold" : "normal").setFontSize(8.4);
-        doc.setTextColor(...(grassetto ? BLU : [21,24,27]));
-        doc.text(cell, cols[i].a === "right" ? xs[i] + cols[i].w - 2.5 : xs[i] + 2.5, y + 4.9,
+        if(cell === "" || cell === undefined) return;
+        const b = grassetti && grassetti.includes(i);
+        doc.setFont("helvetica", b ? "bold" : "normal").setFontSize(8.4);
+        doc.setTextColor(...(b ? col : NERO));
+        doc.text(String(cell), cols[i].a === "right" ? xs[i] + cols[i].w - 2.5 : xs[i] + 2.5, y + 4.9,
                  {align: cols[i].a === "right" ? "right" : "left"});
       });
       doc.setDrawColor(...LINEA).setLineWidth(.15).line(L, y + H, L + totW, y + H);
@@ -1109,17 +1446,22 @@ function generaPDF(t){
 }
 
 /* =========================================================
-   AVVIO
+   10. AVVIO
    ========================================================= */
 if(!S.preventivo.numero) S.preventivo.numero = numeroAuto();
 if(!S.preventivo.data)   S.preventivo.data   = oggiISO();
-$("#c-numero").value = S.preventivo.numero;
-$("#c-data").value   = S.preventivo.data;
+$("#c-numero").value   = S.preventivo.numero;
+$("#c-data").value     = S.preventivo.data;
+$("#c-validita").value = S.preventivo.validita;
 
 bindPaths(document);
-renderRegimi();
-renderListino();
-renderChips();
+renderRegimi("evo");
+renderRegimi("act");
+renderRighe("evo");
+renderRighe("act");
+renderCollante();
+aggiornaCalcolato();
+renderSelettori();
 renderVoci();
 renderLogo();
 if(!Store.persistent) $("#stato-salv").textContent = "sessione";
