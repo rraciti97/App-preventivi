@@ -1,6 +1,6 @@
 /* Preventivi Gasbeton — cache offline
    Alza CACHE di una versione ogni volta che modifichi index.html. */
-const CACHE = "gasbeton-v1";
+const CACHE = "gasbeton-v2";
 const ASSETS = [
   "./",
   "./index.html",
