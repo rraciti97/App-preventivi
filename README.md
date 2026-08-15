@@ -1,55 +1,55 @@
 # Preventivi Gasbeton
 
-Web app installabile per calcolare preventivi di blocchi in calcestruzzo aerato autoclavato (AAC) in cantiere, e generare il PDF da consegnare al cliente.
+An installable web app for quoting autoclaved aerated concrete (AAC) blocks on site, and generating the PDF to hand to the customer.
 
-Nasce da un problema concreto: un venditore di materiali edili faceva i preventivi su un foglio di calcolo, dal telefono, davanti al cliente. Funzionava, ma zoomare su celle da 4 mm non è un modo di lavorare, e il foglio non produce niente di presentabile da lasciare a chi compra. L'app conserva lo stesso motore di calcolo — verificato riga per riga contro il foglio originale — e ne cambia solo l'involucro.
+It started from a concrete problem: a building materials salesman was building quotes in a spreadsheet, on his phone, in front of the customer. It worked, but pinch-zooming into 4 mm cells is no way to work, and a spreadsheet produces nothing presentable to leave with the buyer. The app keeps the same calculation engine — verified row by row against the original spreadsheet — and only changes the shell around it.
 
-## Funzioni
+## Features
 
-- Selezione dello spessore da una fila di blocchi con larghezza proporzionale a quella reale
-- Quantità in bancali, metri quadri o pezzi, con conversione automatica
-- Due linee di prodotto con sconto, IVA e regimi di trasporto indipendenti
-- Calcolo del collante: chilogrammi, sacchi e bancali sulle quantità del preventivo
-- Export PDF con logo, scomposizione del prezzo unitario, totali con IVA e bancali fuori totale
-- Funziona offline; i dati restano sul dispositivo, con export e import JSON
+- Thickness picker rendered as a row of blocks whose width is proportional to the real thickness
+- Quantities in pallets, square metres or pieces, converted automatically
+- Two product lines with independent discount, VAT and freight regimes
+- Adhesive calculation: kilograms, bags and pallets derived from the quote quantities
+- PDF export with logo, unit price breakdown, totals with VAT, and pallets kept outside the total
+- Works offline; data stays on the device, with JSON export and import
 
-## Modello di calcolo
+## Calculation model
 
 ```
-netto        = listino × (1 − sconto)
-trasporto/mq = (costo camion ÷ bancali per camion) ÷ mq per bancale
-€/mq         = netto + trasporto
-€/pezzo      = €/mq × mq per bancale ÷ pezzi per bancale
+net           = list price × (1 − discount)
+freight per m² = (truck cost ÷ pallets per truck) ÷ m² per pallet
+€/m²          = net + freight
+€/piece       = €/m² × m² per pallet ÷ pieces per pallet
 ```
 
-I bancali restano fuori dal prezzo al metro quadro e si conteggiano a parte. Il collante segue una catena parallela guidata dai metri quadri, con consumo al mq che dipende dallo spessore.
+Pallets are excluded from the square metre price and charged separately. The adhesive follows a parallel chain driven by square metres, with consumption per m² depending on thickness.
 
-## Scelte tecniche
+## Design decisions
 
-**PWA anziché app nativa.** SwiftUI avrebbe richiesto un Mac per compilare e, senza App Store, una reinstallazione ogni sette giorni. Per un form con calcoli e un export PDF, una web app installabile dà lo stesso risultato senza scadenze e senza intermediari.
+**PWA rather than a native app.** SwiftUI would have required a Mac to build and, without the App Store, reinstallation every seven days. For a form with calculations and a PDF export, an installable web app delivers the same result with no expiry and no intermediary.
 
-**Un solo file, nessun build step.** Niente da compilare, nessuna dipendenza da aggiornare.
+**A single file, no build step.** Nothing to compile, no dependencies to keep current.
 
-**Nessun backend.** I dati vivono in `localStorage`: listini e margini non attraversano la rete. Un service worker network-first con fallback su cache tiene l'app utilizzabile dove il segnale manca.
+**No backend.** Data lives in `localStorage`, so price lists and margins never cross the network. A network-first service worker with cache fallback keeps the app usable where there is no signal.
 
-Stack: HTML, CSS e JavaScript vanilla. [jsPDF](https://github.com/parallax/jsPDF) da CDN per il PDF.
+Stack: vanilla HTML, CSS and JavaScript. [jsPDF](https://github.com/parallax/jsPDF) from a CDN for the PDF.
 
-## Installazione
+## Setup
 
-Qualsiasi hosting statico. Con GitHub Pages: `Settings → Pages → Deploy from a branch → main / (root)`. Poi da Safari: `Condividi → Aggiungi alla schermata Home`.
+Any static host. With GitHub Pages: `Settings → Pages → Deploy from a branch → main / (root)`. Then from Safari: `Share → Add to Home Screen`.
 
-Dopo ogni modifica, incrementa la costante `CACHE` in `sw.js`, altrimenti il service worker continua a servire la versione in cache.
+After each change, bump the `CACHE` constant in `sw.js`, otherwise the service worker keeps serving the cached version.
 
-## Configurazione
+## Configuration
 
-I prezzi di listino inclusi sono quelli pubblicati dal produttore. **Sconti e costi di trasporto sono a zero di proposito**: sono condizioni commerciali che variano da rivenditore a rivenditore. Si impostano una volta dall'app in `Listini`, oppure si importa un backup JSON già compilato da `Azienda → Backup`.
+The list prices included are the ones published by the manufacturer. **Discounts and freight costs are deliberately set to zero**: these are commercial terms that vary from dealer to dealer. They are entered once from the app under `Listini`, or loaded from a pre-filled JSON backup via `Azienda → Backup`.
 
-Da verificare col proprio fornitore: sacchi per bancale di collante e prezzo al sacco.
+To confirm with your supplier: bags per adhesive pallet, and price per bag.
 
-## Licenza
+## License
 
 [Apache License 2.0](LICENSE).
 
 ---
 
-Strumento non ufficiale, sviluppato in modo indipendente e non affiliato ad alcun produttore. "Gasbeton" è un marchio registrato dei rispettivi titolari, usato a fini descrittivi. I prezzi inclusi hanno valore di esempio: verificare sempre i listini ufficiali in vigore.
+Unofficial tool, independently developed and not affiliated with any manufacturer. "Gasbeton" is a registered trademark of its respective owners, used here descriptively. The prices included are illustrative: always check the official price lists in force.
